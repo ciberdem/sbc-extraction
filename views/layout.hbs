@@ -69,9 +69,6 @@
 <!-- Core plugin JavaScript-->
 <script type="text/javascript" src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script type="text/javascript" src="/js/sb-admin-2.js"></script>
-
 <!-- Page level plugins -->
 <script type="text/javascript" src="/vendor/datatables/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
@@ -83,17 +80,7 @@
 <!-- Page level custom my scripts -->
 <script type="text/javascript" src="/js/translate.table.js"></script>
 
-<script>
-    $(document).ready(function () {
-        $("#target").on("submit", function () {
-            $('#loaderModal').attr('style', 'display: flex !important')
-        });
-    });
-
-    function tableExport(type) {
-        const fileName = $('#inputWord').val()
-        $('#dataTable').tableExport({ fileName, type });
-    }
-</script>
+<!-- Custom scripts for all pages-->
+<script type="text/javascript" src="/js/sb-admin-2.js"></script>
 
 </html>

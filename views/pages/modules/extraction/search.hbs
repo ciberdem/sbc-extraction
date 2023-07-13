@@ -143,17 +143,3 @@
         display: none !important;
     }
 </style>
-
-<script>
-    $(document).ready(function () {
-
-        $("#target").on("submit", function () {
-            alert("here")
-        });
-    });
-
-    function tableExport(type) {
-        const fileName = $('#inputWord').val()
-        $('#dataTable').tableExport({ fileName, type });
-    }
-</script>
