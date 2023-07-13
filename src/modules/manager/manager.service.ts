@@ -2,6 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { ExtractionService } from 'src/api/extraction/extraction.service';
 import { ExtractionDTO } from 'src/dto/models/extraction.dto';
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 @Injectable()
 export class ManagerService {
 
@@ -10,6 +14,7 @@ export class ManagerService {
     ) { }
 
     async searchBy(wordSearch: string): Promise<ExtractionDTO[]> {
+        // await sleep(3000); DEBUG
         return this.extractorService.getAll(wordSearch)
     }
 

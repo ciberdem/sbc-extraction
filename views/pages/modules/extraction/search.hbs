@@ -29,7 +29,7 @@
         <div class="row ms-auto mb-4 mt-4 m-2">
             <form id="target" class='user col-12' action='/' method='post'>
                 <div class="row">
-                    <div class='form-group col-10'>
+                    <div class='form-group col-12'>
                         <input type='string' class='form-control form-control-user' id='inputWord'
                             aria-describedby='searchWord' name='searchWord'
                             placeholder='Pesquise aqui suas palavras chaves...' value="{{searchWord}}" required />
@@ -145,6 +145,13 @@
 </style>
 
 <script>
+    $(document).ready(function () {
+
+        $("#target").on("submit", function () {
+            alert("here")
+        });
+    });
+
     function tableExport(type) {
         const fileName = $('#inputWord').val()
         $('#dataTable').tableExport({ fileName, type });

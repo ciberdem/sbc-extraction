@@ -21,15 +21,13 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link
-        defer
+    <link defer
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    
+
 
 </head>
 {{#if fullBody}}
@@ -84,4 +82,18 @@
 
 <!-- Page level custom my scripts -->
 <script type="text/javascript" src="/js/translate.table.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#target").on("submit", function () {
+            $('#loaderModal').attr('style', 'display: flex !important')
+        });
+    });
+
+    function tableExport(type) {
+        const fileName = $('#inputWord').val()
+        $('#dataTable').tableExport({ fileName, type });
+    }
+</script>
+
 </html>

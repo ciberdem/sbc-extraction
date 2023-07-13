@@ -1987,7 +1987,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/manager/manager.service.ts": {
-        "version": "a9a345e9c5581de96734c677f8aa4ffaefbba97a6a834c881e9095b1853d9920",
+        "version": "2a42f4e7b02bdfd76288df09222d2f57659f13daf6b57d298e1ae4123c513158",
         "signature": "da8d1c45713a844fe2d937f78e5c67102567042f66ec4a23e642fe42262c5908",
         "affectsGlobalScope": false
       },
@@ -2189,11 +2189,6 @@
       "../node_modules/@types/ejs/index.d.ts": {
         "version": "3e1884edd5ad7e5c6f8e900b767dfabc64db4a3588643e72535fa948cddf52cd",
         "signature": "3e1884edd5ad7e5c6f8e900b767dfabc64db4a3588643e72535fa948cddf52cd",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/eslint-visitor-keys/index.d.ts": {
-        "version": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
-        "signature": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/estree/index.d.ts": {
@@ -5428,10 +5423,6 @@
         "../node_modules/@types/mongoose/index.d.ts",
         "../node_modules/mongoose/index.d.ts"
       ],
-      "../node_modules/@types/eslint-visitor-keys/index.d.ts": [
-        "../node_modules/@types/mongoose/index.d.ts",
-        "../node_modules/mongoose/index.d.ts"
-      ],
       "../node_modules/@types/estree/index.d.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
         "../node_modules/mongoose/index.d.ts"
@@ -6953,7 +6944,6 @@
       "../node_modules/@types/connect/index.d.ts",
       "../node_modules/@types/cookiejar/index.d.ts",
       "../node_modules/@types/ejs/index.d.ts",
-      "../node_modules/@types/eslint-visitor-keys/index.d.ts",
       "../node_modules/@types/estree/index.d.ts",
       "../node_modules/@types/express-handlebars/index.d.ts",
       "../node_modules/@types/express-serve-static-core/index.d.ts",

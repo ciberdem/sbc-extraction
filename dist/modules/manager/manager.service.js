@@ -13,6 +13,9 @@ exports.ManagerService = void 0;
 const common_1 = require("@nestjs/common");
 const extraction_service_1 = require("../../api/extraction/extraction.service");
 const extraction_dto_1 = require("../../dto/models/extraction.dto");
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 let ManagerService = class ManagerService {
     constructor(extractorService) {
         this.extractorService = extractorService;
