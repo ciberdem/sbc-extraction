@@ -1,0 +1,21 @@
+.btn-primary {
+    background-color: #167f42;
+    border-color: #167f42;
+}
+
+.atende-pet-logo {
+    height: 40px;
+    width: 40px;
+    background-image: url('../img/logo.svg');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+}
+
+body {
+    font-family: 'Montserrat',
+        sans-serif;
+}
+
+/* .atende-pet-logo:before {
+    content: "\f1b0";
+} */

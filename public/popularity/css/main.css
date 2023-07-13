@@ -1,0 +1,220 @@
+@font-face {
+	font-family: "Days";
+	src: url("fonts/days/Days.otf");
+}
+
+@font-face {
+	font-family: "Colaborate";
+	src: url("fonts/colaborate/ColabReg.otf");
+}
+
+path.link {
+	fill: none;
+	stroke: #666;
+	stroke-width: 1.5px;
+}
+
+marker#agree {
+	fill: green;
+}
+
+path.link.agree {
+	stroke: green;
+}
+
+marker#disagree {
+	fill: red;
+}
+
+path.link.disagree {
+	stroke: red;
+}
+
+path.link.resolved {
+	stroke-dasharray: 0, 2 1;
+}
+
+circle.normal {
+	fill: black;
+	fill-opacity: 0.0;
+	stroke: grey;
+	stroke-width: 0px;
+}
+
+circle.selected {
+	fill: black;
+	fill-opacity: 0.0;
+	stroke: black;
+	stroke-width: 3px;
+}
+
+.normal:hover {
+	fill: black;
+	stroke: black;
+	stroke-width: 3px;
+}
+
+text {
+	font: 12px sans-serif;
+	color: white;
+	pointer-events: none;
+	display: none;
+}
+
+text.shadow {
+	stroke: #fff;
+	stroke-width: 3px;
+	stroke-opacity: .8;
+}
+
+svg {
+	display: block;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+html {
+	width: 75%;
+	height: 100%;
+}
+
+.visualisation {
+	width: 100%;
+	height: 90%;
+	margin-right: 10%;
+	border-width: thin;
+	border-color: gray;
+	border-style: solid;
+}
+
+.toolbar {
+	margin-left: 40%;
+}
+
+.container-page {
+	width: 100%;
+	height: 90%;
+	display: block;
+}
+
+.container-visualisation {
+	width: 50%;
+	height: 85%;
+	float: left;
+	margin-left: 2%;
+	margin-top: 2%;
+}
+
+.container-messages {
+	width: 90%;
+	height: 80%;
+	float: left;
+	margin: 0% 0% 0% 4%;
+}
+
+.message-details {
+	font-family: "Colaborate";
+	width: 100%;
+	border-bottom: dashed;
+	border-width: thin;
+	border-color: gray;
+}
+
+.container-detail {
+	margin-bottom: 2%;
+	margin-top: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
+
+.title {
+	font-family: "Days";
+	width: 90%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2%;
+	margin-top: 2%;
+	display: none;
+}
+
+.position-agree {
+	color: #4F8F23;
+}
+
+.position-disagree {
+	color: #8F2323;
+}
+
+.container-messages-details {
+	height: 80%;
+	width: 100%;
+	overflow: auto;
+	display: none;
+}
+
+.messages-control {
+	width: 100%;
+	display: none;
+}
+
+.icon-control {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.radio-perspective {
+	font-size: 85%;
+	margin-top: 2%;
+	margin-left: 20%;
+}
+
+.radio-participants-agree+label>span {
+	color: #4F8F23;
+}
+
+.radio-participants-disagree+label>span {
+	color: #8F2323;
+}
+
+.container-select-topic {
+	width: 21%;
+	margin-left: 15%;
+	float: left;
+}
+
+.container-select-visit-mode {
+	float: left;
+}
+
+.refresh-icon {
+	margin-top: -5px;
+}
+
+.refresh-icon:hover {
+	margin-top: -5px;
+	cursor: pointer;
+	box-shadow: 4px 4px 16px #969696;
+}
+
+.message-now {
+	font-family: "Colaborate";
+	width: 90%;
+	float: left;
+	padding-left: 1%;
+	height: 15%;
+	overflow: auto;
+}
+
+.message-count {
+	font-family: "Colaborate";
+	margin-bottom: 1%;
+	text-align: center;
+}

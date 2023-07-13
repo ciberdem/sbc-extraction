@@ -1,0 +1,62 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Cadastre um novo Veterinário</h1>
+
+    <!-- Basic Card Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Coloque as informações do veterinário aqui</h6>
+        </div>
+        <div class="card-body">
+            <!-- Form -->
+            <form role="form" method="POST">
+                <div class="form-group">
+
+                    <div class="mb-3">
+                        <label>E-mail</label>
+                        <input class="form-control" type="email" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Senha (Deve conter no mínimo 8 caracteres)</label>
+                        <input class="form-control" name="password" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Nome</label>
+                        <input class="form-control" name="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Identificador</label>
+                        <input class="form-control" name="identifier" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>CRVM</label>
+                        <input class="form-control" name="crvm" required>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <label class="mb-0 align-self-center font-weight-bold">Experiências</label>
+                            <a class="btn btn-primary btn-sm" id="addExperience">
+                                <i class="fa fa-plus"></i> Adicionar
+                            </a>
+                        </div>
+                        <dir id="experience" class="p-0">
+                        </dir>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Cadastrar
+                </button>
+            </form>
+            <!-- End Form -->
+        </div>
+    </div>
+    <!-- End Basic Card Example -->
+
+</div>

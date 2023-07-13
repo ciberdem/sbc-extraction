@@ -1,0 +1,102 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <div class="row ms-auto">
+        <div class='ml-3 mr-2 mt-4 mb-4 m-1 bg-image'></div>
+        <div class='m-1 mt-4 mb-4 bg-sbc-image'></div>
+    </div>
+
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">BIBLIOTECA DIGITAL DA SOCIEDADE BRASILEIRA DE COMPUTAÇÃO</h1>
+    <p class="mb-4"></p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow">
+        <div class="row ms-auto mb-4 mt-4 m-2">
+            <form class='user col-12' action='/' method='post'>
+                <div class="row">
+                    <div class='form-group col-10'>
+                        <input type='string' class='form-control form-control-user' id='exampleInputEmail'
+                        aria-describedby='searchWord' name='searchWord' placeholder='Pesquise aqui suas palavras chaves...' />
+                    </div>
+                </div>
+                
+                <button type='submit' class='col-sm-4 btn btn-primary btn-user btn-block'>
+                    Pesquisar
+                </button>
+            </form>
+        </div>
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Clique no título da coluna para ordenar</h6>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="d-flex justify-content-end">
+                    <a class="mr-1 col-ms-auto btn btn-primary btn-export " href="/" role="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-save" viewBox="0 0 16 16">
+                        <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+                        </svg>
+                        Exportar
+                    </a>
+                </div>
+
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Ano</th>
+                            <th>Autores</th>
+                            <th>Resumo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each results}}
+                        <tr>
+                            <td>{{this.title}}</td>
+                            <td>{{this.year}}</td> {{!-- formatDate --}}
+                            <td>{{this.authors}}</td>
+                            <td>{{this.abstract}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+<style>
+    .bg-image {
+        height: 60px;
+        width: 60px;
+        background-image: url('../img/logo.png');
+        background-repeat: no-repeat;
+        background-size: 60px 60px;
+    }
+
+    .bg-sbc-image {
+        height: 60px;
+        width: 180px;
+        background-image: url('../img/sbc_logo.png');
+        background-repeat: no-repeat;
+        background-size: 180px 60px;
+        border-radius: 4px;
+    }
+
+    .title {
+        font-weight: 600;
+    }
+
+    .title-row {
+        margin-left: 1vw;
+    }
+
+    .btn-export {
+        height: 40px;
+    }
+</style>

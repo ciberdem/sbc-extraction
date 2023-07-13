@@ -1,0 +1,84 @@
+<!-- Outer Row -->
+
+<div
+  class='login flex-wrap-wrap justify-content-center align-items-center align-content-center row'
+>
+  <div class='row title-row'>
+    <div class='justify-content-center text-center'>
+      <div class='login-image mb-2'></div>
+      <div class='h1 text-white title'>Reiwa</div>
+    </div>
+  </div>
+
+  <div class='col-xl-10 col-lg-12 col-md-9'>
+    <div class='card o-hidden border-0 shadow-lg my-5'>
+      <div class='card-body p-0'>
+        <!-- Nested Row within Card Body -->
+        <div class='row'>
+          <div class='col-lg-6 d-none d-lg-block bg-login-image'></div>
+          <div class='col-lg-6'>
+            <div class='p-5'>
+              <div class='text-center'>
+                <h1 class='h4 text-gray-900 mb-4'>Bem vindo de volta!</h1>
+              </div>
+              <form class='user' action='/' method='post'>
+                <div class='form-group'>
+                  <input
+                    type='string'
+                    class='form-control form-control-user'
+                    id='exampleInputEmail'
+                    aria-describedby='emailHelp'
+                    name='email'
+                    placeholder='Entre com seu login aqui...'
+                  />
+                </div>
+                <div class='form-group'>
+                  <input
+                    type='password'
+                    class='form-control form-control-user'
+                    id='exampleInputPassword'
+                    name='password'
+                    placeholder='Senha'
+                  />
+                </div>
+                <div class='form-group'>
+                  <div class='custom-control custom-checkbox small'>
+                    <input
+                      type='checkbox'
+                      class='custom-control-input'
+                      id='customCheck'
+                    />
+                    <label
+                      class='custom-control-label'
+                      for='customCheck'
+                    >Lembre-se de mim</label>
+                  </div>
+                </div>
+                <button
+                  type='submit'
+                  class='btn btn-primary btn-user btn-block'
+                >
+                  Entrar
+                </button>
+              </form>
+              <div class='pt-4 text-danger text-center'>
+                {{error}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .login { margin-top: 15vh; } .login-image { height: 10em; width: 10em;
+  background-image: url('../img/logo.svg'); background-repeat: no-repeat;
+  background-size: 10em 10em; } .title { font-weight: 600; } .title-row {
+  margin-left: 1vw;}
+</style>
+{{! .bg-gradient-primary {
+background-color: #cf4edf;
+background-image: linear-gradient(180deg, #cf4edf 10%, #6c22be 100%);
+} }}
