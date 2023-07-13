@@ -1,18 +1,16 @@
 import { Injectable } from '@nestjs/common';
+import { ExtractionService } from 'src/api/extraction/extraction.service';
 import { ExtractionDTO } from 'src/dto/models/extraction.dto';
 
 @Injectable()
 export class ManagerService {
 
+    constructor(
+        private readonly extractorService: ExtractionService,
+    ) { }
+
     async searchBy(wordSearch: string): Promise<ExtractionDTO[]> {
-        return [
-            {
-                title: "title",
-                year: 'year',
-                authors: 'authors',
-                abstract: 'abstract'
-            }
-        ]
+        return this.extractorService.getAll(wordSearch)
     }
 
     // async create(managerDto: CreateManagerDTO) {

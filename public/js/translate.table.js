@@ -23,5 +23,5 @@ $('#dataTable').DataTable({
       sSortDescending: ': Ativar para ordenar a columna de maneira descendente',
     },
   },
-  columns: [null, null, null, { type: 'date-eu' }, null],
+  columns: [null, null, null, null],
 });

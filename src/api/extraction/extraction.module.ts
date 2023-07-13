@@ -8,6 +8,7 @@ import { NestCrawlerModule } from 'nest-crawler';
     NestCrawlerModule,
   ],
   providers: [ExtractionService],
-  controllers: [ApiExtractionController]
+  controllers: [ApiExtractionController],
+  exports: [ExtractionService]
 })
 export class ApiExtractionModule { }

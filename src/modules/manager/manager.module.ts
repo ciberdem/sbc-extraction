@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ManagerService } from './manager.service';
 import { ManagerController } from './manager.controller';
+import { ApiExtractionModule } from 'src/api/extraction/extraction.module';
 
 @Module({
   imports: [
-    // ApiAuthModule
+    ApiExtractionModule
   ],
   providers: [ManagerService],
   controllers: [ManagerController],

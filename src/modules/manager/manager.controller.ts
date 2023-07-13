@@ -17,9 +17,9 @@ export class ManagerController {
 
     @Post('/')
     async postSearch(@Req() req, @Res() res) {
-        const results = await this.service.searchBy(req.body)
-        console.log(results)
-        res.render('pages/modules/extraction/search', {results})
+        const searchWord = req.body.searchWord
+        const results = await this.service.searchBy(searchWord)
+        res.render('pages/modules/extraction/search', { results, searchWord })
     }
 
     // PAGES

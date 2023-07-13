@@ -1,4 +1,17 @@
 <!-- Begin Page Content -->
+<div class="modal fade show d-flex align-items-center justify-content-center" id="loaderModal" tabindex="-1"
+    role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid">
 
     <div class="row ms-auto">
@@ -14,15 +27,17 @@
     <!-- DataTales Example -->
     <div class="card shadow">
         <div class="row ms-auto mb-4 mt-4 m-2">
-            <form class='user col-12' action='/' method='post'>
+            <form id="target" class='user col-12' action='/' method='post'>
                 <div class="row">
                     <div class='form-group col-10'>
-                        <input type='string' class='form-control form-control-user' id='exampleInputEmail'
-                        aria-describedby='searchWord' name='searchWord' placeholder='Pesquise aqui suas palavras chaves...' />
+                        <input type='string' class='form-control form-control-user' id='inputWord'
+                            aria-describedby='searchWord' name='searchWord'
+                            placeholder='Pesquise aqui suas palavras chaves...' value="{{searchWord}}" required />
                     </div>
                 </div>
-                
-                <button type='submit' class='col-sm-4 btn btn-primary btn-user btn-block'>
+
+                <button onclick="showLoading()" id="submit" type='submit'
+                    class='col-sm-4 btn btn-primary btn-user btn-block'>
                     Pesquisar
                 </button>
             </form>
@@ -35,12 +50,27 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div class="d-flex justify-content-end">
-                    <a class="mr-1 col-ms-auto btn btn-primary btn-export " href="/" role="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-save" viewBox="0 0 16 16">
-                        <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
-                        </svg>
-                        Exportar
-                    </a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff"
+                                class="bi bi-save" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+                            </svg>
+                            Exportar
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" onclick="tableExport('csv')">CSV</a>
+                            <a class="dropdown-item" onclick="tableExport('excel')">Execel</a>
+                            <a class="dropdown-item" onclick="tableExport('pdf')">PDF</a>
+                            <a class="dropdown-item" onclick="tableExport('doc')">DOC</a>
+                            <a class="dropdown-item" onclick="tableExport('txt')">TXT</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" onclick="tableExport('json')">JSON</a>
+                            <a class="dropdown-item" onclick="tableExport('xml')">XML</a>
+                        </div>
+                    </div>
                 </div>
 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -99,4 +129,24 @@
     .btn-export {
         height: 40px;
     }
+
+    #loaderModal {
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Adjust the translucency by modifying the alpha value */
+    }
+
+    .modal-body {
+        text-align: center;
+    }
+
+    #loaderModal {
+        display: none !important;
+    }
 </style>
+
+<script>
+    function tableExport(type) {
+        const fileName = $('#inputWord').val()
+        $('#dataTable').tableExport({ fileName, type });
+    }
+</script>
