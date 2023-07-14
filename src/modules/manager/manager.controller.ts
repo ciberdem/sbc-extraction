@@ -2,6 +2,7 @@ import { Controller, Get, Res, Render, Request, Req, Body, Post } from '@nestjs/
 import { Response } from 'express';
 import { ManagerService } from './manager.service';
 import { ApiTags } from '@nestjs/swagger';
+import { FormDTO } from 'src/dto/models/form.dto';
 
 @ApiTags('Views')
 @Controller()
@@ -17,9 +18,9 @@ export class ManagerController {
 
     @Post('/')
     async postSearch(@Req() req, @Res() res) {
-        const searchWord = req.body.searchWord
-        const results = await this.service.searchBy(searchWord)
-        res.render('pages/modules/extraction/search', { results, searchWord })
+        const forms: FormDTO = req.body;
+        const results = await this.service.searchBy(forms)
+        res.render('pages/modules/extraction/search', { results, forms })
     }
 
     // PAGES

@@ -16,6 +16,7 @@ exports.ManagerController = void 0;
 const common_1 = require("@nestjs/common");
 const manager_service_1 = require("./manager.service");
 const swagger_1 = require("@nestjs/swagger");
+const form_dto_1 = require("../../dto/models/form.dto");
 let ManagerController = class ManagerController {
     constructor(service) {
         this.service = service;
@@ -24,9 +25,9 @@ let ManagerController = class ManagerController {
         res.render('pages/modules/extraction/search');
     }
     async postSearch(req, res) {
-        const searchWord = req.body.searchWord;
-        const results = await this.service.searchBy(searchWord);
-        res.render('pages/modules/extraction/search', { results, searchWord });
+        const forms = req.body;
+        const results = await this.service.searchBy(forms);
+        res.render('pages/modules/extraction/search', { results, forms });
     }
     getHome() {
         return {};

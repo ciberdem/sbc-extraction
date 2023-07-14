@@ -2,31 +2,31 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class ExtractionDTO {
     @ApiProperty()
-    title: string;
+    title: string = '';
 
     @ApiProperty()
-    year: string;
+    year: string = '';
 
     @ApiProperty()
-    authors: string;
+    authors: string = '';
 
     @ApiProperty()
-    abstract: string;
+    abstract: string = '';
 
     @ApiProperty()
-    url: string;
+    url: string = '';
 
     @ApiProperty()
-    DOI: string;
+    DOI: string = '';
 
     @ApiProperty()
-    PDF: string;
+    PDF: string = '';
 
     @ApiProperty()
-    type: string;
+    type: string = '';
     
     @ApiProperty()
-    publicated: string;
+    publicated: string = '';
 }
 
 

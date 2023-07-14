@@ -36,6 +36,14 @@ async function bootstrap() {
     app.setViewEngine('hbs');
     hbs.registerPartials(path_1.join(__dirname, '..', 'views/partials'));
     hbs.registerHelper('formatDate', hbsHelpers_1.default.formatDate);
+    hbs.registerHelper('contains', function (array, value, options) {
+        if (array && array.indexOf(value) !== -1) {
+            return options.fn(this);
+        }
+        else {
+            return options.inverse(this);
+        }
+    });
     app.use(session({
         secret: 'AKSJNDKJSANDJ@#$%^&UYHGFDE$@R%TYHu3y12g3i87gbjuasd87g1ouj2v9ey',
         cookie: {

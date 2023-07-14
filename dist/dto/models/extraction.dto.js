@@ -12,6 +12,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExtractionDTO = void 0;
 const swagger_1 = require("@nestjs/swagger");
 class ExtractionDTO {
+    constructor() {
+        this.title = '';
+        this.year = '';
+        this.authors = '';
+        this.abstract = '';
+        this.url = '';
+        this.DOI = '';
+        this.PDF = '';
+        this.type = '';
+        this.publicated = '';
+    }
 }
 __decorate([
     swagger_1.ApiProperty(),

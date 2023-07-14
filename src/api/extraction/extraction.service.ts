@@ -3,6 +3,7 @@ import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { ExtractionDTO } from 'src/dto/models/extraction.dto';
 import { NestCrawlerService } from 'nest-crawler';
+import { FormDTO } from 'src/dto/models/form.dto';
 
 @Injectable()
 export class ExtractionService {
@@ -11,8 +12,8 @@ export class ExtractionService {
         private readonly crawler: NestCrawlerService,
     ) { }
 
-    async getAll(word: string): Promise<ExtractionDTO[]> {
-        const URL = `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(word)}`;
+    async getAll(data: FormDTO): Promise<ExtractionDTO[]> {
+        const URL = this.createURL(data);
         const numberOfPages = await this.getNumberOfPages(URL);
 
         let requests: Promise<ExtractionDTO[]>[] = [];
@@ -23,6 +24,25 @@ export class ExtractionService {
         const flatArray: ExtractionDTO[] = ([] as ExtractionDTO[]).concat(...responses);
 
         return flatArray;
+    }
+
+    createURL(data: FormDTO): string {
+        var archives = data.archives
+        if (archives != undefined) {
+            if (Array.isArray(data.archives)) {
+                archives = data.archives.join("&");   
+            }
+
+            archives = `&${archives}`
+        }
+        
+        let URL = `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(data.searchWord)}`;
+
+        if (archives != undefined) {
+            URL += archives
+        }
+        console.log(URL)
+        return URL
     }
 
     async getNumberOfPages(URL: string): Promise<number> {

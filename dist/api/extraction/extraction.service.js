@@ -13,12 +13,13 @@ exports.ExtractionService = void 0;
 const common_1 = require("@nestjs/common");
 const extraction_dto_1 = require("../../dto/models/extraction.dto");
 const nest_crawler_1 = require("nest-crawler");
+const form_dto_1 = require("../../dto/models/form.dto");
 let ExtractionService = class ExtractionService {
     constructor(crawler) {
         this.crawler = crawler;
     }
-    async getAll(word) {
-        const URL = `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(word)}`;
+    async getAll(data) {
+        const URL = this.createURL(data);
         const numberOfPages = await this.getNumberOfPages(URL);
         let requests = [];
         for (let i = 1; i <= numberOfPages; i++) {
@@ -27,6 +28,21 @@ let ExtractionService = class ExtractionService {
         const responses = await Promise.all(requests);
         const flatArray = [].concat(...responses);
         return flatArray;
+    }
+    createURL(data) {
+        var archives = data.archives;
+        if (archives != undefined) {
+            if (Array.isArray(data.archives)) {
+                archives = data.archives.join("&");
+            }
+            archives = `&${archives}`;
+        }
+        let URL = `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(data.searchWord)}`;
+        if (archives != undefined) {
+            URL += archives;
+        }
+        console.log(URL);
+        return URL;
     }
     async getNumberOfPages(URL) {
         const data = await this.crawler.fetch({

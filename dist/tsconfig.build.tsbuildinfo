@@ -1562,7 +1562,7 @@
         "affectsGlobalScope": false
       },
       "../src/dto/models/extraction.dto.ts": {
-        "version": "93f67ee7b186c68411bac45155c5f7c0b2320236c9e53fd155d34d79733a840c",
+        "version": "56773e9b0cb520f92af2c3600630c272959b8f8a748d70e1f1a512683bc7ee2d",
         "signature": "170a3b6e2a43db6df8501a41d7c2bfb3bcf20afc4fa373344cf8d6f712c5adc7",
         "affectsGlobalScope": false
       },
@@ -1971,9 +1971,14 @@
         "signature": "5bb941c51374ba7d9aed3d1e0a0dbf7f035251c593d57ec08a5ba621183a3ba4",
         "affectsGlobalScope": false
       },
+      "../src/dto/models/form.dto.ts": {
+        "version": "cb38ec2e96e06acb1bbd1abfcd3e8138fcee99d43a7c47d5986fc1469fe39dd8",
+        "signature": "668ff7262cc8285e2863a67c34869d1913237dcf304fa695eb0fc9e539f37bf6",
+        "affectsGlobalScope": false
+      },
       "../src/api/extraction/extraction.service.ts": {
-        "version": "91be4bc25a1e4774f06a4f063803656668b03945a1574e29b89ddce71ca0e699",
-        "signature": "c8adfdb28d14ae4473d1a7877cfe6b39ceecd85c3320029a7ce9cfe9d61fb3b6",
+        "version": "ceff3647f7a094259678df3e9bdd6355c0f91b735ad78ee0fd76bb7134cd7a49",
+        "signature": "695de695422c2da5a47442794611089ac6f9cb8a47fdc96f2b1577fbc6acacdf",
         "affectsGlobalScope": false
       },
       "../src/api/extraction/extraction.controller.ts": {
@@ -1987,8 +1992,8 @@
         "affectsGlobalScope": false
       },
       "../src/modules/manager/manager.service.ts": {
-        "version": "2a42f4e7b02bdfd76288df09222d2f57659f13daf6b57d298e1ae4123c513158",
-        "signature": "da8d1c45713a844fe2d937f78e5c67102567042f66ec4a23e642fe42262c5908",
+        "version": "b7385b2674aed1e8a4318eea90513d563e183d7ebfc914f7c4f32ed654522eb8",
+        "signature": "48df7dfebb0c1fe8fc71434686c0f53989dbf34f5eb55849f3affb327de35977",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/range-parser/index.d.ts": {
@@ -2032,7 +2037,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/manager/manager.controller.ts": {
-        "version": "8bec1996ef5fab66ab6d84b4bd478937b4bfaff23cb2ea07570abe196a77c86f",
+        "version": "b7838b3257ae455c1d13c0ba2a67f4046d67d8cb51389aa95ba12b9cb86d6dbf",
         "signature": "97cfe1b631ebc5167ef7267fcfdd0d1bb728c2a502d28ea92db85f296493ba9a",
         "affectsGlobalScope": false
       },
@@ -2132,12 +2137,12 @@
         "affectsGlobalScope": true
       },
       "../src/helpers/hbs/hbshelpers.ts": {
-        "version": "d2b14bdb70d01721b030a4e1bef0b5678fb3f92999990887d9020e7fccf78f72",
-        "signature": "5088cb3ae1e782697bbb1974af92a6f9b6a665ee83b25fb5685fabdcee467788",
+        "version": "446f481d1924497aa1debb359105cc130faf98ea84beb13300c45a6793d9d7f5",
+        "signature": "3b7ff57c32bb5b70af3b9a8fa23c5abe4a43e4886b6816f9e7ed85fec31e3ffe",
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "a7b636d894fe881af260838bdf093bd52e124e21b36db18529b56de7913293df",
+        "version": "796a4e22c53ac3b56d45dc14f861114bbf128bd092b5894667458a3a8ab4be31",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -3897,7 +3902,8 @@
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../node_modules/@types/mongoose/index.d.ts",
         "../node_modules/nest-crawler/dist/index.d.ts",
-        "../src/dto/models/extraction.dto.ts"
+        "../src/dto/models/extraction.dto.ts",
+        "../src/dto/models/form.dto.ts"
       ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -3910,6 +3916,9 @@
         "../node_modules/@nestjs/swagger/index.d.ts"
       ],
       "../src/dto/models/extraction.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts"
+      ],
+      "../src/dto/models/form.dto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts"
       ],
       "../src/filters/all-exceptions.filter.ts": [
@@ -3944,6 +3953,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
+        "../src/dto/models/form.dto.ts",
         "../src/modules/manager/manager.service.ts"
       ],
       "../src/modules/manager/manager.module.ts": [
@@ -3955,7 +3965,8 @@
       "../src/modules/manager/manager.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/api/extraction/extraction.service.ts",
-        "../src/dto/models/extraction.dto.ts"
+        "../src/dto/models/extraction.dto.ts",
+        "../src/dto/models/form.dto.ts"
       ]
     },
     "exportedModulesMap": {
@@ -5464,7 +5475,8 @@
       ],
       "../src/api/extraction/extraction.service.ts": [
         "../node_modules/nest-crawler/dist/index.d.ts",
-        "../src/dto/models/extraction.dto.ts"
+        "../src/dto/models/extraction.dto.ts",
+        "../src/dto/models/form.dto.ts"
       ],
       "../src/filters/all-exceptions.filter.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -5480,7 +5492,8 @@
       ],
       "../src/modules/manager/manager.service.ts": [
         "../src/api/extraction/extraction.service.ts",
-        "../src/dto/models/extraction.dto.ts"
+        "../src/dto/models/extraction.dto.ts",
+        "../src/dto/models/form.dto.ts"
       ]
     },
     "semanticDiagnosticsPerFile": []

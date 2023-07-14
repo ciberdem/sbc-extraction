@@ -13,6 +13,7 @@ exports.ManagerService = void 0;
 const common_1 = require("@nestjs/common");
 const extraction_service_1 = require("../../api/extraction/extraction.service");
 const extraction_dto_1 = require("../../dto/models/extraction.dto");
+const form_dto_1 = require("../../dto/models/form.dto");
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

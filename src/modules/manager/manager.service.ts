@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ExtractionService } from 'src/api/extraction/extraction.service';
 import { ExtractionDTO } from 'src/dto/models/extraction.dto';
+import { FormDTO } from 'src/dto/models/form.dto';
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -13,7 +14,7 @@ export class ManagerService {
         private readonly extractorService: ExtractionService,
     ) { }
 
-    async searchBy(wordSearch: string): Promise<ExtractionDTO[]> {
+    async searchBy(wordSearch: FormDTO): Promise<ExtractionDTO[]> {
         // await sleep(3000); DEBUG
         return this.extractorService.getAll(wordSearch)
     }

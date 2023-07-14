@@ -21,18 +21,46 @@
 
 
     <!-- Page Heading -->
-    <h1 class="h4 mb-2 text-gray-800">FERRAMENTA PARA EXTRAÇÃO DE DADOS DA BIBLIOTECA DIGITAL DA SOCIEDADE BRASILEIRA DE COMPUTAÇÃO</h1>
+    <h1 class="h4 mb-2 text-gray-800">FERRAMENTA PARA EXTRAÇÃO DE DADOS DA BIBLIOTECA DIGITAL DA SOCIEDADE BRASILEIRA DE
+        COMPUTAÇÃO</h1>
     <p class="mb-4"></p>
 
     <!-- DataTales Example -->
     <div class="card shadow">
         <div class="row ms-auto mb-4 mt-4 m-2">
             <form id="target" class='user col-12' action='/' method='post'>
-                <div class="row">
+                <div class="row mb-0">
                     <div class='form-group col-12'>
                         <input type='string' class='form-control form-control-user' id='inputWord'
                             aria-describedby='searchWord' name='searchWord'
-                            placeholder='Pesquise aqui suas palavras chaves...' value="{{searchWord}}" required />
+                            placeholder='Pesquise aqui suas palavras chaves...' value="{{forms.searchWord}}" required />
+                    </div>
+                </div>
+
+                <div class="row ml-2 form-group">
+                    <span>Bases:</span>
+                    <div class="custom-control custom-checkbox custom-checkbox-green form-check-inline ml-2">
+                        <input type="checkbox" class="custom-control-input custom-control-input-green"
+                            name="archives" value="archiveIds%5B%5D=1" id="customCheck1" 
+                            {{#contains forms.archives 'archiveIds%5B%5D=1'}}checked{{/contains}}
+                        >
+                        <label class="custom-control-label" for="customCheck1">Anais de Eventos</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-checkbox-green form-check-inline">
+                        <input type="checkbox" class="custom-control-input custom-control-input-green"
+                            name="archives" value="archiveIds%5B%5D=2" id="customCheck2" 
+                            {{#contains forms.archives 'archiveIds%5B%5D=2'}}checked{{/contains}}
+                        >
+                        <label class="custom-control-label" for="customCheck2">Periódicos</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-checkbox-green form-check-inline">
+                        <input type="checkbox" class="custom-control-input custom-control-input-green"
+                            name="archives" value="archiveIds%5B%5D=3" id="customCheck3" 
+                            {{#contains forms.archives 'archiveIds%5B%5D=3'}}checked{{/contains}}
+                        >
+                        <label class="custom-control-label" for="customCheck3">Livros e relatórios</label>
                     </div>
                 </div>
 
@@ -73,13 +101,14 @@
                     </div>
                 </div>
 
-                <table class="table table-bordered" style="overflow-y: auto;" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" style="overflow-y: auto;" id="dataTable" width="100%"
+                    cellspacing="0">
                     <thead>
                         <tr>
                             <th>Título</th>
                             <th>Ano</th>
-                            <th>Resumo</th>
                             <th>Autores</th>
+                            <th>Resumo</th>
                             <th>Publicado em:</th>
                             <th>Tipo</th>
                             <th>DOI</th>
@@ -90,15 +119,28 @@
                     <tbody>
                         {{#each results}}
                         <tr>
-                            <td><a href="{{this.url}}" target="_blank">{{this.title}}</a></td>
-                            <td>{{this.year}}</td>
-                            <td>{{this.authors}}</td>
-                            <td><div style="width:300px; height:300px; overflow:auto">{{this.abstract}}</div></td>
-                            <td>{{this.publicated}}</td>
-                            <td>{{this.type}}</td>
-                            <td><a href="{{this.DOI}}" target="_blank">DOI</a></td>
-                            <td><a href="{{this.PDF}}" target="_blank">PDF</a></td>
-                            <td><a href="{{this.url}}" target="_blank">Link</a></td>
+                            {{#if this.url}}
+                            <td><a href="{{this.url}}" target="_blank">{{this.title}} </a></d>
+                            {{else}}
+                            <td>{{this.title}}</d>
+                            {{/if}}
+                            
+                            <td>
+                                {{#if this.year}}{{this.year}}{{else}}---{{/if}}
+                            </td>
+                            <td>
+                                {{#if this.authors}}{{this.authors}}{{else}}---{{/if}}
+                            </td>
+                            <td>
+                                <div style="width:300px; height:300px; overflow:auto">
+                                    {{#if this.abstract}}{{this.abstract}}{{else}}---{{/if}}
+                                </div>
+                            </td>
+                            <td>{{#if this.publicated}}{{this.publicated}}{{else}}---{{/if}}</td>
+                            <td>{{#if this.type}}{{this.type}}{{else}}---{{/if}}</td>
+                            <td><a href="{{this.DOI}}" target="_blank">{{#if this.DOI}}DOI{{/if}}</a></td>
+                            <td><a href="{{this.PDF}}" target="_blank">{{#if this.DOI}}PDF{{/if}}</a></td>
+                            <td><a href="{{this.url}}" target="_blank">{{#if this.url}}Link{{/if}}</a></td>
                         </tr>
                         {{/each}}
                     </tbody>
@@ -110,23 +152,46 @@
 
 <style>
     @media (max-width: 978px) {
-    .container, .container-fluid {
-      padding:0;
-      margin:0;
+        .container,
+        .container-fluid {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            padding: 0;
+        }
+
+        .navbar-fixed-top,
+        .navbar-fixed-bottom,
+        .navbar-static-top {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+
+        .h4 {
+            font-size: 1rem;
+            padding: 0.5em;
+        }
     }
 
-    body {
-      padding:0;
+    .custom-control-input-green:focus~.custom-control-label::before {
+        border-color: #167f42 !important;
+        box-shadow: 0 0 0 0.1rem rgba(40, 167, 69, 0.25) !important;
     }
 
-    .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom:0;
+    .custom-control-input-green:checked~.custom-control-label::before {
+        border-color: #167f42 !important;
+        background-color: #167f42 !important;
     }
-    .h4 {
-        font-size: 1rem;
-        padding: 0.5em;
+
+    .custom-control-input-green:focus:not(:checked)~.custom-control-label::before {
+        border-color: #65d192 !important;
     }
-}
+
+    .custom-control-input-green:not(:disabled):active~.custom-control-label::before {
+        background-color: #d6f5dd !important;
+        border-color: #d6f5dd !important;
+    }
 </style>
