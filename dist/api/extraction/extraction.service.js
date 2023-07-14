@@ -20,7 +20,6 @@ let ExtractionService = class ExtractionService {
     async getAll(word) {
         const URL = `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(word)}`;
         const numberOfPages = await this.getNumberOfPages(URL);
-        var result = [];
         let requests = [];
         for (let i = 1; i <= numberOfPages; i++) {
             requests.push(this.getAllFromPage(URL, i));

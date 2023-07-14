@@ -14,7 +14,6 @@ export class ExtractionService {
     async getAll(word: string): Promise<ExtractionDTO[]> {
         const URL = `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(word)}`;
         const numberOfPages = await this.getNumberOfPages(URL);
-        var result: ExtractionDTO[] = []
 
         let requests: Promise<ExtractionDTO[]>[] = [];
         for (let i = 1; i <= numberOfPages; i++) {
