@@ -25,7 +25,7 @@ let ApiExtractionController = class ApiExtractionController {
     async get(search) {
         try {
             const data = await this.extractionService.getAll(search);
-            return new answer_dto_1.AnswerDTO('Resumos lidos com sucesso!', 200, data);
+            return new answer_dto_1.AnswerDTO('Artigos lidos com sucesso!', 200, data);
         }
         catch (error) {
             throw error.message || error;

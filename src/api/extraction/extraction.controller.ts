@@ -20,7 +20,7 @@ export class ApiExtractionController {
     async get(@Query('search') search): Promise<AnswerDTO<ExtractionDTO[]>> {
         try {
             const data = await this.extractionService.getAll(search)
-            return new AnswerDTO('Resumos lidos com sucesso!', 200, data);
+            return new AnswerDTO('Artigos lidos com sucesso!', 200, data);
         } catch (error) {
             throw error.message || error
         }

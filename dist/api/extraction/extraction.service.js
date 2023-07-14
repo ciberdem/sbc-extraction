@@ -18,16 +18,38 @@ let ExtractionService = class ExtractionService {
         this.crawler = crawler;
     }
     async getAll(word) {
-        var urls = [];
-        const pages = await this.crawler.fetch({
+        const URL = `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(word)}`;
+        const numberOfPages = await this.getNumberOfPages(URL);
+        var result = [];
+        let requests = [];
+        for (let i = 1; i <= numberOfPages; i++) {
+            requests.push(this.getAllFromPage(URL, i));
+        }
+        const responses = await Promise.all(requests);
+        const flatArray = [].concat(...responses);
+        return flatArray;
+    }
+    async getNumberOfPages(URL) {
+        const data = await this.crawler.fetch({
+            target: URL,
+            fetch: {
+                numberOfArticles: {
+                    selector: 'div.articles_count',
+                    convert: (x) => `${x.replace(/(\d+)\s+a\s+\d+\s+de\s+(\d+)\s+itens/, "$2")}`,
+                }
+            },
+        });
+        return Math.ceil(Number(data.numberOfArticles) / 25);
+    }
+    async getAllFromPage(URL, page) {
+        return this.crawler.fetch({
             target: {
-                url: `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(word)}`,
+                url: `${URL}&searchPage=${page}`,
                 iterator: {
                     selector: 'a.record_title'
                 },
             },
             fetch: (data, index, url) => {
-                urls.push(url);
                 return {
                     title: {
                         selector: 'h1',
@@ -59,14 +81,14 @@ let ExtractionService = class ExtractionService {
                     },
                     type: {
                         selector: 'nav.cmp_breadcrumbs b'
+                    },
+                    url: {
+                        selector: 'nav.cmp_breadcrumbs a',
+                        convert: (x) => `${url}`,
                     }
                 };
             },
         });
-        for (let i in pages) {
-            pages[i].url = urls[i];
-        }
-        return pages;
     }
 };
 ExtractionService = __decorate([
