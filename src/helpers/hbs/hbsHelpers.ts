@@ -6,12 +6,4 @@ export default class CustomHelpers {
             ano = data.getFullYear();
         return dia + "/" + mes + "/" + ano;
     }
-
-    static contains(array: string[], value, options) {
-        if (array && array.indexOf(value) !== -1) {
-          return options.fn(this);
-        } else {
-          return options.inverse(this);
-        }
-    }
 }

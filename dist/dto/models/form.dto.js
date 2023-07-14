@@ -21,5 +21,13 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", Object)
 ], FormDTO.prototype, "archives", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], FormDTO.prototype, "initialDate", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], FormDTO.prototype, "finalDate", void 0);
 exports.FormDTO = FormDTO;
 //# sourceMappingURL=form.dto.js.map

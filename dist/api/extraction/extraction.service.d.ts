@@ -6,6 +6,8 @@ export declare class ExtractionService {
     constructor(crawler: NestCrawlerService);
     getAll(data: FormDTO): Promise<ExtractionDTO[]>;
     createURL(data: FormDTO): string;
+    createArchives(data: FormDTO): string | string[];
+    createDate(data: FormDTO): string;
     getNumberOfPages(URL: string): Promise<number>;
     getAllFromPage(URL: string, page: Number): Promise<ExtractionDTO[]>;
 }

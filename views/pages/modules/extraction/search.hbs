@@ -29,6 +29,9 @@
     <div class="card shadow">
         <div class="row ms-auto mb-4 mt-4 m-2">
             <form id="target" class='user col-12' action='/' method='post'>
+
+                {{!-- Search --}}
+                <label for="inputWord">Pesquisa</label>
                 <div class="row mb-0">
                     <div class='form-group col-12'>
                         <input type='string' class='form-control form-control-user' id='inputWord'
@@ -37,30 +40,49 @@
                     </div>
                 </div>
 
+                {{!-- Archives --}}
+
+                <label for="customCheck1">Bases</label>
                 <div class="row ml-2 form-group">
-                    <span>Bases:</span>
                     <div class="custom-control custom-checkbox custom-checkbox-green form-check-inline ml-2">
-                        <input type="checkbox" class="custom-control-input custom-control-input-green"
-                            name="archives" value="archiveIds%5B%5D=1" id="customCheck1" 
-                            {{#contains forms.archives 'archiveIds%5B%5D=1'}}checked{{/contains}}
-                        >
+                        <input type="checkbox" class="custom-control-input custom-control-input-green" name="archives"
+                            value="archiveIds%5B%5D=1" id="customCheck1" {{#contains forms.archives 'archiveIds%5B%5D=1'
+                            }}checked{{/contains}}>
                         <label class="custom-control-label" for="customCheck1">Anais de Eventos</label>
                     </div>
 
                     <div class="custom-control custom-checkbox custom-checkbox-green form-check-inline">
-                        <input type="checkbox" class="custom-control-input custom-control-input-green"
-                            name="archives" value="archiveIds%5B%5D=2" id="customCheck2" 
-                            {{#contains forms.archives 'archiveIds%5B%5D=2'}}checked{{/contains}}
-                        >
+                        <input type="checkbox" class="custom-control-input custom-control-input-green" name="archives"
+                            value="archiveIds%5B%5D=2" id="customCheck2" {{#contains forms.archives 'archiveIds%5B%5D=2'
+                            }}checked{{/contains}}>
                         <label class="custom-control-label" for="customCheck2">Periódicos</label>
                     </div>
 
                     <div class="custom-control custom-checkbox custom-checkbox-green form-check-inline">
-                        <input type="checkbox" class="custom-control-input custom-control-input-green"
-                            name="archives" value="archiveIds%5B%5D=3" id="customCheck3" 
-                            {{#contains forms.archives 'archiveIds%5B%5D=3'}}checked{{/contains}}
-                        >
+                        <input type="checkbox" class="custom-control-input custom-control-input-green" name="archives"
+                            value="archiveIds%5B%5D=3" id="customCheck3" {{#contains forms.archives 'archiveIds%5B%5D=3'
+                            }}checked{{/contains}}>
                         <label class="custom-control-label" for="customCheck3">Livros e relatórios</label>
+                    </div>
+                </div>
+
+                {{!-- Date --}}
+
+                <label for="fecha1">Período</label>
+                <div class="form-group">
+                    <div class="row" >
+                        <div class="col datepicker date input-group">
+                            <input type="text" placeholder="Início" class="form-control" id="fecha1" name="initialDate" value="{{forms.initialDate}}">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                        <div class="col datepicker date input-group">
+                            <input type="text" placeholder="Término" class="form-control" id="fecha2" name="finalDate" value="{{forms.finalDate}}">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -72,7 +94,7 @@
         </div>
 
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Clique no título da coluna para ordenar</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Resultados</h6>
         </div>
 
         <div class="card-body">
@@ -121,10 +143,9 @@
                         <tr>
                             {{#if this.url}}
                             <td><a href="{{this.url}}" target="_blank">{{this.title}} </a></d>
-                            {{else}}
+                                {{else}}
                             <td>{{this.title}}</d>
-                            {{/if}}
-                            
+                                {{/if}}
                             <td>
                                 {{#if this.year}}{{this.year}}{{else}}---{{/if}}
                             </td>
@@ -149,49 +170,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    @media (max-width: 978px) {
-        .container,
-        .container-fluid {
-            padding: 0;
-            margin: 0;
-        }
-
-        body {
-            padding: 0;
-        }
-
-        .navbar-fixed-top,
-        .navbar-fixed-bottom,
-        .navbar-static-top {
-            margin-left: 0;
-            margin-right: 0;
-            margin-bottom: 0;
-        }
-
-        .h4 {
-            font-size: 1rem;
-            padding: 0.5em;
-        }
-    }
-
-    .custom-control-input-green:focus~.custom-control-label::before {
-        border-color: #167f42 !important;
-        box-shadow: 0 0 0 0.1rem rgba(40, 167, 69, 0.25) !important;
-    }
-
-    .custom-control-input-green:checked~.custom-control-label::before {
-        border-color: #167f42 !important;
-        background-color: #167f42 !important;
-    }
-
-    .custom-control-input-green:focus:not(:checked)~.custom-control-label::before {
-        border-color: #65d192 !important;
-    }
-
-    .custom-control-input-green:not(:disabled):active~.custom-control-label::before {
-        background-color: #d6f5dd !important;
-        border-color: #d6f5dd !important;
-    }
-</style>

@@ -27,6 +27,7 @@ body {
 .collapse-tr:target {
     display: table-row;
 }
+
 .bg-image {
     height: 60px;
     width: 60px;
@@ -67,4 +68,49 @@ body {
 
 #loaderModal {
     display: none !important;
+}
+
+@media (max-width: 978px) {
+
+    .container,
+    .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        padding: 0;
+    }
+
+    .navbar-fixed-top,
+    .navbar-fixed-bottom,
+    .navbar-static-top {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    .h4 {
+        font-size: 1rem;
+        padding: 0.5em;
+    }
+}
+
+.custom-control-input-green:focus~.custom-control-label::before {
+    border-color: #167f42 !important;
+    box-shadow: 0 0 0 0.1rem rgba(40, 167, 69, 0.25) !important;
+}
+
+.custom-control-input-green:checked~.custom-control-label::before {
+    border-color: #167f42 !important;
+    background-color: #167f42 !important;
+}
+
+.custom-control-input-green:focus:not(:checked)~.custom-control-label::before {
+    border-color: #65d192 !important;
+}
+
+.custom-control-input-green:not(:disabled):active~.custom-control-label::before {
+    background-color: #d6f5dd !important;
+    border-color: #d6f5dd !important;
 }

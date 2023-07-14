@@ -30,19 +30,44 @@ let ExtractionService = class ExtractionService {
         return flatArray;
     }
     createURL(data) {
-        var archives = data.archives;
+        let URL = `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(data.searchWord)}`;
+        const archives = this.createArchives(data);
+        if (archives != "") {
+            URL += archives;
+        }
+        const date = this.createDate(data);
+        if (date != "") {
+            URL += date;
+        }
+        return URL;
+    }
+    createArchives(data) {
+        var archives = data.archives || "";
         if (archives != undefined) {
             if (Array.isArray(data.archives)) {
                 archives = data.archives.join("&");
             }
             archives = `&${archives}`;
         }
-        let URL = `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(data.searchWord)}`;
-        if (archives != undefined) {
-            URL += archives;
+        return archives;
+    }
+    createDate(data) {
+        let result = "";
+        let initialDate = data.initialDate;
+        if (initialDate != undefined) {
+            const [day, month, year] = initialDate.split('/');
+            result += `&field-7-fromDay=${day}`;
+            result += `&field-7-fromMonth=${month}`;
+            result += `&field-7-fromYear=${year}`;
         }
-        console.log(URL);
-        return URL;
+        let finalDate = data.finalDate;
+        if (finalDate != undefined) {
+            const [day, month, year] = finalDate.split('/');
+            result += `&field-7-toDay=${day}`;
+            result += `&field-7-toMonth=${month}`;
+            result += `&field-7-toYear=${year}`;
+        }
+        return result;
     }
     async getNumberOfPages(URL) {
         const data = await this.crawler.fetch({
