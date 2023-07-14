@@ -73,22 +73,32 @@
                     </div>
                 </div>
 
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" style="overflow-y: auto;" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Título</th>
                             <th>Ano</th>
-                            <th>Autores</th>
                             <th>Resumo</th>
+                            <th>Autores</th>
+                            <th>Publicado em:</th>
+                            <th>Tipo</th>
+                            <th>DOI</th>
+                            <th>PDF</th>
+                            <th>Link</th>
                         </tr>
                     </thead>
                     <tbody>
                         {{#each results}}
                         <tr>
-                            <td>{{this.title}}</td>
-                            <td>{{this.year}}</td> {{!-- formatDate --}}
+                            <td><a href="{{this.url}}" target="_blank">{{this.title}}</a></td>
+                            <td>{{this.year}}</td>
                             <td>{{this.authors}}</td>
-                            <td>{{this.abstract}}</td>
+                            <td><div style="width:300px; height:300px; overflow:auto">{{this.abstract}}</div></td>
+                            <td>{{this.publicated}}</td>
+                            <td>{{this.type}}</td>
+                            <td><a href="{{this.DOI}}" target="_blank">DOI</a></td>
+                            <td><a href="{{this.PDF}}" target="_blank">PDF</a></td>
+                            <td><a href="{{this.url}}" target="_blank">Link</a></td>
                         </tr>
                         {{/each}}
                     </tbody>
@@ -96,50 +106,27 @@
             </div>
         </div>
     </div>
-
 </div>
-<!-- /.container-fluid -->
 
 <style>
-    .bg-image {
-        height: 60px;
-        width: 60px;
-        background-image: url('../img/logo.png');
-        background-repeat: no-repeat;
-        background-size: 60px 60px;
+    @media (max-width: 978px) {
+    .container, .container-fluid {
+      padding:0;
+      margin:0;
     }
 
-    .bg-sbc-image {
-        height: 60px;
-        width: 180px;
-        background-image: url('../img/sbc_logo.png');
-        background-repeat: no-repeat;
-        background-size: 180px 60px;
-        border-radius: 4px;
+    body {
+      padding:0;
     }
 
-    .title {
-        font-weight: 600;
+    .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom:0;
     }
-
-    .title-row {
-        margin-left: 1vw;
+    .h4 {
+        font-size: 1rem;
+        padding: 0.5em;
     }
-
-    .btn-export {
-        height: 40px;
-    }
-
-    #loaderModal {
-        background-color: rgba(0, 0, 0, 0.5);
-        /* Adjust the translucency by modifying the alpha value */
-    }
-
-    .modal-body {
-        text-align: center;
-    }
-
-    #loaderModal {
-        display: none !important;
-    }
+}
 </style>

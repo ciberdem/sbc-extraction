@@ -18,6 +18,7 @@ let ExtractionService = class ExtractionService {
         this.crawler = crawler;
     }
     async getAll(word) {
+        var urls = [];
         const pages = await this.crawler.fetch({
             target: {
                 url: `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(word)}`,
@@ -26,14 +27,15 @@ let ExtractionService = class ExtractionService {
                 },
             },
             fetch: (data, index, url) => {
+                urls.push(url);
                 return {
                     title: {
                         selector: 'h1',
                         convert: (x) => `${x}`,
                     },
                     year: {
-                        selector: 'div.published',
-                        convert: (x) => `${x.replace(/Publicado/g, '').replace(/\n/g, '').replace(/\t/g, '').replace(/.*\/(\d{4})$/, "$1")}`,
+                        selector: 'div.published div.value',
+                        convert: (x) => `${x.replace(/.*\/(\d{4})$/, "$1")}`,
                     },
                     authors: {
                         selector: 'span.name',
@@ -42,10 +44,28 @@ let ExtractionService = class ExtractionService {
                     abstract: {
                         selector: 'div.abstract',
                         convert: (x) => `${x.replace(/\t/g, "").replace(/Resumo\n/g, '')}`,
+                    },
+                    publicated: {
+                        selector: 'nav.cmp_breadcrumbs a',
+                        convert: (x) => `${x}`,
+                    },
+                    PDF: {
+                        selector: 'a.obj_galley_link',
+                        attr: 'href'
+                    },
+                    DOI: {
+                        selector: 'div.doi span.value a',
+                        attr: 'href'
+                    },
+                    type: {
+                        selector: 'nav.cmp_breadcrumbs b'
                     }
                 };
             },
         });
+        for (let i in pages) {
+            pages[i].url = urls[i];
+        }
         return pages;
     }
 };

@@ -11,13 +11,9 @@ export class ExtractionService {
         private readonly crawler: NestCrawlerService,
     ) { }
 
-    async getAll(word: string): Promise<any> {
-
-        interface Page {
-            title: string;
-        }
-
-        const pages: Page[] = await this.crawler.fetch({
+    async getAll(word: string): Promise<ExtractionDTO[]> {
+        var urls = []
+        const pages: ExtractionDTO[] = await this.crawler.fetch({
             target: {
                 url: `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${encodeURIComponent(word)}`,
                 iterator: {
@@ -25,14 +21,15 @@ export class ExtractionService {
                 },
             },
             fetch: (data: any, index: number, url: string) => {
+                urls.push(url)
                 return {
                     title: {
                         selector: 'h1',
                         convert: (x: string) => `${x}`,
                     },
                     year: {
-                        selector: 'div.published',
-                        convert: (x: string) => `${x.replace(/Publicado/g, '').replace(/\n/g, '').replace(/\t/g, '').replace(/.*\/(\d{4})$/, "$1")}`,
+                        selector: 'div.published div.value',
+                        convert: (x: string) => `${x.replace(/.*\/(\d{4})$/, "$1")}`,
                     },
                     authors: {
                         selector: 'span.name',
@@ -41,10 +38,29 @@ export class ExtractionService {
                     abstract: {
                         selector: 'div.abstract',
                         convert: (x: string) => `${x.replace(/\t/g, "").replace(/Resumo\n/g, '')}`,
+                    },
+                    publicated: {
+                        selector: 'nav.cmp_breadcrumbs a',
+                        convert: (x: string) => `${x}`,
+                    },
+                    PDF: {
+                        selector: 'a.obj_galley_link',
+                        attr: 'href'
+                    },
+                    DOI: {
+                        selector: 'div.doi span.value a',
+                        attr: 'href'
+                    },
+                    type: {
+                        selector: 'nav.cmp_breadcrumbs b'
                     }
                 }
             },
         });
+
+        for (let i in pages) {
+            pages[i].url = urls[i]
+        }
 
         return pages
     }

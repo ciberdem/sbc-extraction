@@ -19,3 +19,52 @@ body {
 /* .atende-pet-logo:before {
     content: "\f1b0";
 } */
+
+.collapse-tr {
+    display: none;
+}
+
+.collapse-tr:target {
+    display: table-row;
+}
+.bg-image {
+    height: 60px;
+    width: 60px;
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+}
+
+.bg-sbc-image {
+    height: 60px;
+    width: 180px;
+    background-image: url('../img/sbc_logo.png');
+    background-repeat: no-repeat;
+    background-size: 180px 60px;
+    border-radius: 4px;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.title-row {
+    margin-left: 1vw;
+}
+
+.btn-export {
+    height: 40px;
+}
+
+#loaderModal {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust the translucency by modifying the alpha value */
+}
+
+.modal-body {
+    text-align: center;
+}
+
+#loaderModal {
+    display: none !important;
+}

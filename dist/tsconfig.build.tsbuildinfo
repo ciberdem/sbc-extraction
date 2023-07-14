@@ -1562,8 +1562,8 @@
         "affectsGlobalScope": false
       },
       "../src/dto/models/extraction.dto.ts": {
-        "version": "b7afbd6e84f0eb542e1e3b918729c93e3e69729aa09d4cd971db24509eaa34e8",
-        "signature": "b15347a1e6dce39043511866aba0872d125ef4ebd6e8717cedd1cef6d6daeeed",
+        "version": "1fc1cdfdbace80a1adc5cbceb63419dd3a9949200cb501d43523a3bcece5c794",
+        "signature": "8224c64d5911e20044501f683144904bb66465be1af549a57e549a1ae7753849",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/globals.d.ts": {
@@ -1972,8 +1972,8 @@
         "affectsGlobalScope": false
       },
       "../src/api/extraction/extraction.service.ts": {
-        "version": "f30ea3e1cd165891bb08a2163d380a12f4c39e70d9f5039bd6a09369cd6e5e45",
-        "signature": "59bdf8ac20423516a16713506c36a1e031583c6b1cdce47fa315ab080093d791",
+        "version": "c1fa2b4ed172ba591687bc1cf9313a12041fbb8c149e049bfe33fffd8f783edc",
+        "signature": "cb205db8170b65159d3c9cca36e620a0532d8132fb40a24148e3cb8ea9c9b475",
         "affectsGlobalScope": false
       },
       "../src/api/extraction/extraction.controller.ts": {
@@ -5463,7 +5463,8 @@
         "../src/dto/models/extraction.dto.ts"
       ],
       "../src/api/extraction/extraction.service.ts": [
-        "../node_modules/nest-crawler/dist/index.d.ts"
+        "../node_modules/nest-crawler/dist/index.d.ts",
+        "../src/dto/models/extraction.dto.ts"
       ],
       "../src/filters/all-exceptions.filter.ts": [
         "../node_modules/@nestjs/common/index.d.ts"

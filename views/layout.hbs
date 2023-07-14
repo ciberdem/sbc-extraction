@@ -30,35 +30,12 @@
 
 
 </head>
-{{#if fullBody}}
-
-<body id="page-top">
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-        {{> sidebar}}
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                {{> navigation}}
-                {{{body}}}
-            </div>
-            {{> footer}}
-        </div>
-    </div>
-    {{> modal}}
-</body>
-
-{{else}}
 
 <body class="bg-gradient-primary">
     <div class="container">
         {{{body}}}
     </div>
 </body>
-{{/if}}
-
-
 
 <!-- Bootstrap core JavaScript-->
 <script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>

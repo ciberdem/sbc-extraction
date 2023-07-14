@@ -12,11 +12,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExtractionDTO = void 0;
 const swagger_1 = require("@nestjs/swagger");
 class ExtractionDTO {
-    constructor(title, year, authors, abstract) {
+    constructor(title, year, authors, abstract, url, DOI, PDF, type, publicated) {
         this.title = title;
         this.year = year;
         this.authors = authors;
         this.abstract = abstract;
+        this.url = url;
+        this.DOI = DOI;
+        this.PDF = PDF;
+        this.type = type;
+        this.publicated = publicated;
     }
 }
 __decorate([
@@ -35,5 +40,25 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], ExtractionDTO.prototype, "abstract", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], ExtractionDTO.prototype, "url", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], ExtractionDTO.prototype, "DOI", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], ExtractionDTO.prototype, "PDF", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], ExtractionDTO.prototype, "type", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], ExtractionDTO.prototype, "publicated", void 0);
 exports.ExtractionDTO = ExtractionDTO;
 //# sourceMappingURL=extraction.dto.js.map
