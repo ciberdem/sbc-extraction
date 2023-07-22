@@ -23,6 +23,10 @@ __decorate([
 ], FormDTO.prototype, "archives", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    __metadata("design:type", Object)
+], FormDTO.prototype, "languages", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], FormDTO.prototype, "initialDate", void 0);
 __decorate([

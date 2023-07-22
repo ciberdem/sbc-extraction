@@ -8,6 +8,7 @@ export declare class ExtractionService {
     createURL(data: FormDTO): string;
     createArchives(data: FormDTO): string | string[];
     createDate(data: FormDTO): string;
+    createLanguages(data: FormDTO): string | string[];
     getNumberOfPages(URL: string): Promise<number>;
     getAllFromPage(URL: string, page: Number): Promise<ExtractionDTO[]>;
 }

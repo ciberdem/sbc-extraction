@@ -39,6 +39,10 @@ let ExtractionService = class ExtractionService {
         if (date != "") {
             URL += date;
         }
+        const languages = this.createLanguages(data);
+        if (languages != "") {
+            URL += languages;
+        }
         return URL;
     }
     createArchives(data) {
@@ -68,6 +72,16 @@ let ExtractionService = class ExtractionService {
             result += `&field-7-toYear=${year}`;
         }
         return result;
+    }
+    createLanguages(data) {
+        var languages = data.languages || "";
+        if (languages != undefined) {
+            if (Array.isArray(data.languages)) {
+                languages = data.languages.join("&");
+            }
+            languages = `&${languages}`;
+        }
+        return languages;
     }
     async getNumberOfPages(URL) {
         const data = await this.crawler.fetch({

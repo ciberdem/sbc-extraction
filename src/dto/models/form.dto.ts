@@ -8,6 +8,9 @@ export class FormDTO {
     archives?: string[] | string;
 
     @ApiProperty()
+    languages?: string[] | string;
+
+    @ApiProperty()
     initialDate?: string;
 
     @ApiProperty()

@@ -39,6 +39,11 @@ export class ExtractionService {
             URL += date
         }
 
+        const languages = this.createLanguages(data)
+        if (languages != "") {
+            URL += languages
+        }
+
         return URL
     }
 
@@ -76,6 +81,19 @@ export class ExtractionService {
         }
 
         return result
+    }
+
+    createLanguages(data: FormDTO): string | string[] {
+        var languages = data.languages || ""
+
+        if (languages != undefined) {
+            if (Array.isArray(data.languages)) {
+                languages = data.languages.join("&");   
+            }
+
+            languages = `&${languages}`
+        }
+        return languages
     }
 
     async getNumberOfPages(URL: string): Promise<number> {
