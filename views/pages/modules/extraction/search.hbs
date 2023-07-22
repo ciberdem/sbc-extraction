@@ -70,15 +70,17 @@
 
                 <label for="fecha1">Período</label>
                 <div class="form-group">
-                    <div class="row" >
+                    <div class="row">
                         <div class="col datepicker date input-group">
-                            <input type="text" placeholder="Início" class="form-control" id="fecha1" name="initialDate" value="{{forms.initialDate}}">
+                            <input type="text" placeholder="Início" class="form-control" id="fecha1" name="initialDate"
+                                value="{{forms.initialDate}}">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
                         <div class="col datepicker date input-group">
-                            <input type="text" placeholder="Término" class="form-control" id="fecha2" name="finalDate" value="{{forms.finalDate}}">
+                            <input type="text" placeholder="Término" class="form-control" id="fecha2" name="finalDate"
+                                value="{{forms.finalDate}}">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                             </div>
@@ -170,3 +172,26 @@
         </div>
     </div>
 </div>
+
+<script>
+    function tableExport(type) {
+        const fileName = $('#inputWord').val()
+        $('#dataTable').tableExport(
+            {
+                fileName,
+                type,
+                onCellHtmlData: function (cell, rowIndex, colIndex, htmlData) {
+                    if ($(cell).find('a').length > 0) {
+                        let link = $(cell).find('a').attr('href')
+                        if (colIndex == 0) {
+                            return htmlData;
+                        } else {
+                            return link;
+                        }
+                    }
+                    return htmlData;
+                }
+            }
+        );
+    }
+</script>
