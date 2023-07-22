@@ -113,14 +113,14 @@
                             Exportar
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" onclick="tableExport('csv')">CSV</a>
-                            <a class="dropdown-item" onclick="tableExport('excel')">Excel</a>
-                            <a class="dropdown-item" onclick="tableExport('pdf')">PDF</a>
-                            <a class="dropdown-item" onclick="tableExport('doc')">DOC</a>
-                            <a class="dropdown-item" onclick="tableExport('txt')">TXT</a>
+                            <a class="dropdown-item" id="tableExportCsv">CSV</a>
+                            <a class="dropdown-item" id="tableExportExcel">Excel</a>
+                            <a class="dropdown-item" id="tableExportPdf">PDF</a>
+                            <a class="dropdown-item" id="tableExportDoc">DOC</a>
+                            <a class="dropdown-item" id="tableExportTxt">TXT</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" onclick="tableExport('json')">JSON</a>
-                            <a class="dropdown-item" onclick="tableExport('xml')">XML</a>
+                            <a class="dropdown-item" id="tableExportJson">JSON</a>
+                            <a class="dropdown-item" id="tableExportXml">XML</a>
                         </div>
                     </div>
                 </div>
@@ -172,26 +172,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    function tableExport(type) {
-        const fileName = $('#inputWord').val()
-        $('#dataTable').tableExport(
-            {
-                fileName,
-                type,
-                onCellHtmlData: function (cell, rowIndex, colIndex, htmlData) {
-                    if ($(cell).find('a').length > 0) {
-                        let link = $(cell).find('a').attr('href')
-                        if (colIndex == 0) {
-                            return htmlData;
-                        } else {
-                            return link;
-                        }
-                    }
-                    return htmlData;
-                }
-            }
-        );
-    }
-</script>
