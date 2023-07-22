@@ -45,6 +45,38 @@ body {
     border-radius: 4px;
 }
 
+.bg-each-image {
+    height: 60px;
+    width: 60px;
+    background-image: url('../img/each.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+}
+
+.bg-ppgsi-image {
+    height: 60px;
+    width: 60px;
+    background-image: url('../img/ppgsi.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+}
+
+.bg-mack-image {
+    height: 60px;
+    width: 60px;
+    background-image: url('../img/mack.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+}
+
+.bg-mack-cloud-image {
+    height: 60px;
+    width: 80px;
+    background-image: url('../img/mack-cloud.png');
+    background-repeat: no-repeat;
+    background-size: 80px 60px;
+}
+
 .title {
     font-weight: 600;
 }
