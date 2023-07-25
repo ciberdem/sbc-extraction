@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { ExtractionDTO } from 'src/dto/models/extraction.dto';
 import { NestCrawlerService } from 'nest-crawler';
 import { FormDTO } from 'src/dto/models/form.dto';
+import { LinksDTO } from 'src/dto/models/links.dto';
 
 @Injectable()
 export class ExtractionService {
@@ -159,6 +160,64 @@ export class ExtractionService {
                         selector: 'nav.cmp_breadcrumbs a',
                         convert: (x: string) => `${url}`,
                     }
+                }
+            },
+        });
+    }
+
+    // MARK: - Springer Resumes
+
+    async getSpringer(data: LinksDTO): Promise<ExtractionDTO[]> {
+        const links = data.links;
+        let requests: Promise<ExtractionDTO[]>[] = [];
+        for (let i = 0; i < links.length; i++) {
+            requests.push(this.getResume(links[i]))
+        }
+        const responses = await Promise.all(requests);
+        const flatArray: ExtractionDTO[] = ([] as ExtractionDTO[]).concat(...responses);
+
+        return flatArray;
+    }
+
+    async getResume(URL: string): Promise<ExtractionDTO[]> {
+        return this.crawler.fetch({
+            target: URL,
+            fetch: {
+                title: {
+                    selector: 'h1',
+                    convert: (x: string) => `${x}`,
+                },
+                year: {
+                    selector: 'header li time',
+                    convert: (x: string) => `${x.replace(/(.*)(\d{4})/, "$2")}`,
+                },
+                authors: {
+                    selector: 'header li.c-article-author-list__item a',
+                    convert: (x: string) => `${x.replace(/ORCID: orcid.org\/\d{4}-\d{4}-\d{4}-\d{4}/, '').replace(/\d+/g, ', ')}.`.replace(', .', '.'),
+                },
+                abstract: {
+                    selector: 'div#Abs1-content',
+                    convert: (x: string) => `${x.replace(/\t/g, "").replace(/Resumo\n/g, '')}`,
+                },
+                publicated: {
+                    selector: 'nav ol li#breadcrumb2',
+                    convert: (x: string) => `${x}`,
+                },
+                PDF: {
+                    selector: 'div.c-pdf-container a',
+                    attr: 'href',
+                    convert: (x: string) => `${x == "" ? "" : 'https://rd.springer.com'+x }`
+                },
+                DOI: {
+                    selector: 'div.doi span.value a',
+                    attr: 'href'
+                },
+                type: {
+                    selector: 'nav ol li#breadcrumb1',
+                },
+                url: {
+                    selector: 'nav.cmp_breadcrumbs a',
+                    convert: (x: string) => `${URL}`,
                 }
             },
         });

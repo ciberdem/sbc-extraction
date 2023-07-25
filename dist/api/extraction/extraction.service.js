@@ -14,6 +14,7 @@ const common_1 = require("@nestjs/common");
 const extraction_dto_1 = require("../../dto/models/extraction.dto");
 const nest_crawler_1 = require("nest-crawler");
 const form_dto_1 = require("../../dto/models/form.dto");
+const links_dto_1 = require("../../dto/models/links.dto");
 let ExtractionService = class ExtractionService {
     constructor(crawler) {
         this.crawler = crawler;
@@ -141,6 +142,59 @@ let ExtractionService = class ExtractionService {
                         convert: (x) => `${url}`,
                     }
                 };
+            },
+        });
+    }
+    async getSpringer(data) {
+        const links = data.links;
+        let requests = [];
+        for (let i = 0; i < links.length; i++) {
+            requests.push(this.getResume(links[i]));
+        }
+        const responses = await Promise.all(requests);
+        const flatArray = [].concat(...responses);
+        return flatArray;
+    }
+    async getResume(URL) {
+        return this.crawler.fetch({
+            target: URL,
+            fetch: {
+                title: {
+                    selector: 'h1',
+                    convert: (x) => `${x}`,
+                },
+                year: {
+                    selector: 'header li time',
+                    convert: (x) => `${x.replace(/(.*)(\d{4})/, "$2")}`,
+                },
+                authors: {
+                    selector: 'header li.c-article-author-list__item a',
+                    convert: (x) => `${x.replace(/ORCID: orcid.org\/\d{4}-\d{4}-\d{4}-\d{4}/, '').replace(/\d+/g, ', ')}.`.replace(', .', '.'),
+                },
+                abstract: {
+                    selector: 'div#Abs1-content',
+                    convert: (x) => `${x.replace(/\t/g, "").replace(/Resumo\n/g, '')}`,
+                },
+                publicated: {
+                    selector: 'nav ol li#breadcrumb2',
+                    convert: (x) => `${x}`,
+                },
+                PDF: {
+                    selector: 'div.c-pdf-container a',
+                    attr: 'href',
+                    convert: (x) => `${x == "" ? "" : 'https://rd.springer.com' + x}`
+                },
+                DOI: {
+                    selector: 'div.doi span.value a',
+                    attr: 'href'
+                },
+                type: {
+                    selector: 'nav ol li#breadcrumb1',
+                },
+                url: {
+                    selector: 'nav.cmp_breadcrumbs a',
+                    convert: (x) => `${URL}`,
+                }
             },
         });
     }

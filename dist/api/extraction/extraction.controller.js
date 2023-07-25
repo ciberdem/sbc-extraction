@@ -18,6 +18,7 @@ const swagger_1 = require("@nestjs/swagger");
 const answer_dto_1 = require("../../dto/answer/answer.dto");
 const extraction_dto_1 = require("../../dto/models/extraction.dto");
 const extraction_service_1 = require("./extraction.service");
+const links_dto_1 = require("../../dto/models/links.dto");
 let ApiExtractionController = class ApiExtractionController {
     constructor(extractionService) {
         this.extractionService = extractionService;
@@ -31,15 +32,31 @@ let ApiExtractionController = class ApiExtractionController {
             throw error.message || error;
         }
     }
+    async getResumeFromSpringerLinks(links) {
+        try {
+            const data = await this.extractionService.getSpringer(links);
+            return new answer_dto_1.AnswerDTO('Artigos lidos com sucesso!', 200, data);
+        }
+        catch (error) {
+            throw error.message || error;
+        }
+    }
 };
 __decorate([
-    common_1.Get(),
+    common_1.Get('sol'),
     swagger_1.ApiQuery({ name: 'search', description: 'Selecione a busca', required: true }),
     __param(0, common_1.Query('search')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], ApiExtractionController.prototype, "get", null);
+__decorate([
+    common_1.Post('springer'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [links_dto_1.LinksDTO]),
+    __metadata("design:returntype", Promise)
+], ApiExtractionController.prototype, "getResumeFromSpringerLinks", null);
 ApiExtractionController = __decorate([
     swagger_1.ApiTags('Extraction'),
     common_1.Controller('api/extraction'),

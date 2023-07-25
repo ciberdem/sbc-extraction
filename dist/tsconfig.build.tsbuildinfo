@@ -1976,14 +1976,19 @@
         "signature": "642919730fcfd58d66f6a1135149d882098fce50214b541ce8c949fb149adbf7",
         "affectsGlobalScope": false
       },
+      "../src/dto/models/links.dto.ts": {
+        "version": "a3b2bfc673a149b61843d59eef4edd1276ce2cd04faf62f71ceec9d040d1237b",
+        "signature": "e26fca364f2c75d47dccf96e9d06f0c4ef0337a5590785d6a7cea96d1f15eece",
+        "affectsGlobalScope": false
+      },
       "../src/api/extraction/extraction.service.ts": {
-        "version": "5fc5498bf47d3572a3b01fff3717ce2970787632872b5dd7af24807463b9165d",
-        "signature": "e30e39d4f96f5b8acee58d97fb42102991abdddd42ebee8b7fdaf94e78514b3e",
+        "version": "0b017957dc79f0c4a6a5452bfa291fc888cb5172b6a4186fba823f86a0d4f6d1",
+        "signature": "304e89b43d5509ae4a154b71d32d2a359d4f2d296a4a71e647aa9e2612b8ca93",
         "affectsGlobalScope": false
       },
       "../src/api/extraction/extraction.controller.ts": {
-        "version": "b24319bea4982489d47980f0d62589aa7eda98d4a866cee23984c9cab9666103",
-        "signature": "43b7357436d2d2baf8d02228f241e2d768516c7201952c088063c2f6a7e8713e",
+        "version": "2e23a97d497d5fd0f00f8dd813fbb3073c2b9e48d3605c63ea6d0542307e0bfa",
+        "signature": "0c74d8343285cbf7fe2c6187b8424a37b5d20374d7e70e32c0a1659a3f5b72a1",
         "affectsGlobalScope": false
       },
       "../src/api/extraction/extraction.module.ts": {
@@ -3889,7 +3894,8 @@
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../src/api/extraction/extraction.service.ts",
         "../src/dto/answer/answer.dto.ts",
-        "../src/dto/models/extraction.dto.ts"
+        "../src/dto/models/extraction.dto.ts",
+        "../src/dto/models/links.dto.ts"
       ],
       "../src/api/extraction/extraction.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -3903,7 +3909,8 @@
         "../node_modules/@types/mongoose/index.d.ts",
         "../node_modules/nest-crawler/dist/index.d.ts",
         "../src/dto/models/extraction.dto.ts",
-        "../src/dto/models/form.dto.ts"
+        "../src/dto/models/form.dto.ts",
+        "../src/dto/models/links.dto.ts"
       ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -3919,6 +3926,9 @@
         "../node_modules/@nestjs/swagger/index.d.ts"
       ],
       "../src/dto/models/form.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts"
+      ],
+      "../src/dto/models/links.dto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts"
       ],
       "../src/filters/all-exceptions.filter.ts": [
@@ -5471,12 +5481,14 @@
       "../src/api/extraction/extraction.controller.ts": [
         "../src/api/extraction/extraction.service.ts",
         "../src/dto/answer/answer.dto.ts",
-        "../src/dto/models/extraction.dto.ts"
+        "../src/dto/models/extraction.dto.ts",
+        "../src/dto/models/links.dto.ts"
       ],
       "../src/api/extraction/extraction.service.ts": [
         "../node_modules/nest-crawler/dist/index.d.ts",
         "../src/dto/models/extraction.dto.ts",
-        "../src/dto/models/form.dto.ts"
+        "../src/dto/models/form.dto.ts",
+        "../src/dto/models/links.dto.ts"
       ],
       "../src/filters/all-exceptions.filter.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -5963,6 +5975,7 @@
       "../src/dto/answer/answer.dto.ts",
       "../src/dto/models/extraction.dto.ts",
       "../src/dto/models/form.dto.ts",
+      "../src/dto/models/links.dto.ts",
       "../src/filters/all-exceptions.filter.ts",
       "../src/helpers/hbs/hbshelpers.ts",
       "../src/helpers/swagger/api-answer-dto.ts",

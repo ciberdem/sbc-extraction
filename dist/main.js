@@ -16,8 +16,8 @@ const hbsHelpers_1 = require("./helpers/hbs/hbsHelpers");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const options = new swagger_1.DocumentBuilder()
-        .setTitle('Reiwa')
-        .setDescription('The Reiwa API description')
+        .setTitle('Pesquisa')
+        .setDescription('The API para extração e facilitação em busca de dados nas bases de Pesquisa')
         .setVersion('1.0')
         .addBearerAuth()
         .build();
