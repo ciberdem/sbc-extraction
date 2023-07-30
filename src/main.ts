@@ -46,7 +46,7 @@ async function bootstrap() {
   hbs.registerPartials(join(__dirname, '..', 'views/partials'));
   hbs.registerHelper('formatDate', CustomHelpers.formatDate);
 
-  hbs.registerHelper('contains', function(array, value, options) {
+  hbs.registerHelper('contains', function (array, value, options) {
     if (array && array.indexOf(value) !== -1) {
       return options.fn(this);
     } else {
@@ -63,8 +63,7 @@ async function bootstrap() {
   }))
 
   app.use(flash());
-  app.use(helmet());
-
+  app.use(helmet({ contentSecurityPolicy: false }));
 
   // PORT
   await app.listen(process.env.PORT || 3000);
