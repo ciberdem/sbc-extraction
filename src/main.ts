@@ -64,6 +64,7 @@ async function bootstrap() {
 
   app.use(flash());
   app.use(helmet({ contentSecurityPolicy: false }));
+  // TODO: - Improve: helmet({ contentSecurityPolicy: { directives: { 'script-src': ["'self'", "https://whitelisted-domain.com"] } } })
 
   // PORT
   await app.listen(process.env.PORT || 3000);
