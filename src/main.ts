@@ -63,7 +63,7 @@ async function bootstrap() {
   }))
 
   app.use(flash());
-  app.use(helmet({ contentSecurityPolicy: false }));
+  // app.use(helmet({ contentSecurityPolicy: false }));
   // TODO: - Improve: helmet({ contentSecurityPolicy: { directives: { 'script-src': ["'self'", "https://whitelisted-domain.com"] } } })
 
   // PORT
