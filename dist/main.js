@@ -9,15 +9,12 @@ const common_1 = require("@nestjs/common");
 const body_parser_1 = require("body-parser");
 const path_1 = require("path");
 const hbs = require("hbs");
-const helmet = require("helmet");
-const session = require("express-session");
-const flash = require("connect-flash");
 const hbsHelpers_1 = require("./helpers/hbs/hbsHelpers");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const options = new swagger_1.DocumentBuilder()
-        .setTitle('Pesquisa')
-        .setDescription('The API para extração e facilitação em busca de dados nas bases de Pesquisa')
+        .setTitle('Reiwa')
+        .setDescription('The Reiwa API description')
         .setVersion('1.0')
         .addBearerAuth()
         .build();
@@ -44,14 +41,6 @@ async function bootstrap() {
             return options.inverse(this);
         }
     });
-    app.use(session({
-        secret: 'AKSJNDKJSANDJ@#$%^&UYHGFDE$@R%TYHu3y12g3i87gbjuasd87g1ouj2v9ey',
-        cookie: {
-            maxAge: 86400000 * 7 * 12,
-        }
-    }));
-    app.use(flash());
-    app.use(helmet());
     await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

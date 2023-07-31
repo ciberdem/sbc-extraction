@@ -8,14 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta http-equiv="Content-Security-Policy" content="
-                            default-src * data: blob: ws: wss: gap://ready file://*;
-                            style-src * 'unsafe-inline'; 
-                            script-src * 'unsafe-inline' 'unsafe-eval';
-                            connect-src * ws: wss:;
-                            script-src 'self' 'unsafe-eval' 'unsafe-inline' *.googletagmanager.com *.google-analytics.com;
-                            script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
-                            ">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;
+       img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+       style-src  'self' 'unsafe-inline' *">
     <title>{{title}}</title>
 
     <!-- Custom fonts for this template-->
