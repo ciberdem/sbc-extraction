@@ -12,7 +12,10 @@
                             default-src * data: blob: ws: wss: gap://ready file://*;
                             style-src * 'unsafe-inline'; 
                             script-src * 'unsafe-inline' 'unsafe-eval';
-                            connect-src * ws: wss:;">
+                            connect-src * ws: wss:;
+                            script-src 'self' 'unsafe-eval' 'unsafe-inline' *.googletagmanager.com *.google-analytics.com;
+                            script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
+                            ">
     <title>{{title}}</title>
 
     <!-- Custom fonts for this template-->
