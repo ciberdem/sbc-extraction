@@ -55,14 +55,14 @@ async function bootstrap() {
   });
 
   // Passaport Session
-  app.use(session({
-    secret: 'AKSJNDKJSANDJ@#$%^&UYHGFDE$@R%TYHu3y12g3i87gbjuasd87g1ouj2v9ey',
-    cookie: {
-      maxAge: 86400000 * 7 * 12, // 1 ano
-    }
-  }))
+  // app.use(session({
+  //   secret: 'AKSJNDKJSANDJ@#$%^&UYHGFDE$@R%TYHu3y12g3i87gbjuasd87g1ouj2v9ey',
+  //   cookie: {
+  //     maxAge: 86400000 * 7 * 12, // 1 ano
+  //   }
+  // }))
 
-  app.use(flash());
+  // app.use(flash());
   // app.use(helmet({ contentSecurityPolicy: false }));
   // TODO: - Improve: helmet({ contentSecurityPolicy: { directives: { 'script-src': ["'self'", "https://whitelisted-domain.com"] } } })
 
