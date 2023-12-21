@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
-import { ExtractionDTO } from 'src/dto/models/extraction.dto';
+import { ExtractionDTO } from 'src/dto/extraction.dto';
 import { NestCrawlerService } from 'nest-crawler';
-import { FormDTO } from 'src/dto/models/form.dto';
-import { LinksDTO } from 'src/dto/models/links.dto';
+import { FormDTO } from 'src/dto/form.dto';
+import { LinksDTO } from 'src/dto/links.dto';
 
 @Injectable()
 export class ExtractionService {

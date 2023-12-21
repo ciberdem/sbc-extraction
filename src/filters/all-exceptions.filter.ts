@@ -31,17 +31,17 @@ export class AllExceptionsFilter implements ExceptionFilter {
             if (typeof exception['response'].message == typeof {}) message = this.capitalize(exception['response'].message.join(' e ').toLowerCase())
         }
 
-        response.render(
-            'pages/404',
-            {
-                fullBody: false
-            }
-        )
+        // response.render(
+        //     'pages/404',
+        //     {
+        //         fullBody: false
+        //     }
+        // )
 
-        // response.json({
-        //     success: false,
-        //     message: message,
-        //     statusCode: exception['status'] || status
-        // });
+        response.json({
+            success: false,
+            message: message,
+            statusCode: exception['status'] || status
+        });
     }
 }

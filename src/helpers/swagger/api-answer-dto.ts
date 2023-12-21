@@ -1,4 +1,4 @@
-import { AnswerDTO } from './../../dto/answer/answer.dto';
+import { AnswerDTO } from '../../dto/answer.dto';
 import { applyDecorators, Type } from "@nestjs/common";
 import { ApiOkResponse, getSchemaPath } from "@nestjs/swagger";
 

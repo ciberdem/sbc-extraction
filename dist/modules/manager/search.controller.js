@@ -12,25 +12,22 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ManagerController = void 0;
+exports.SearchController = void 0;
 const common_1 = require("@nestjs/common");
-const manager_service_1 = require("./manager.service");
+const search_service_1 = require("./search.service");
 const swagger_1 = require("@nestjs/swagger");
 const form_dto_1 = require("../../dto/form.dto");
-let ManagerController = class ManagerController {
+let SearchController = class SearchController {
     constructor(service) {
         this.service = service;
     }
     index(res) {
-        res.render('pages/modules/extraction/search');
+        res.render('pages/search');
     }
     async postSearch(req, res) {
         const forms = req.body;
         const results = await this.service.searchBy(forms);
-        res.render('pages/modules/extraction/search', { results, forms });
-    }
-    getHome() {
-        return {};
+        res.render('pages/search', { results, forms });
     }
 };
 __decorate([
@@ -39,25 +36,18 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], ManagerController.prototype, "index", null);
+], SearchController.prototype, "index", null);
 __decorate([
     common_1.Post('/'),
     __param(0, common_1.Req()), __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
-], ManagerController.prototype, "postSearch", null);
-__decorate([
-    common_1.Get('dashboard'),
-    common_1.Render('pages/modules/dashboard/dashboard'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], ManagerController.prototype, "getHome", null);
-ManagerController = __decorate([
+], SearchController.prototype, "postSearch", null);
+SearchController = __decorate([
     swagger_1.ApiTags('Views'),
     common_1.Controller(),
-    __metadata("design:paramtypes", [manager_service_1.ManagerService])
-], ManagerController);
-exports.ManagerController = ManagerController;
-//# sourceMappingURL=manager.controller.js.map
+    __metadata("design:paramtypes", [search_service_1.SearchService])
+], SearchController);
+exports.SearchController = SearchController;
+//# sourceMappingURL=search.controller.js.map

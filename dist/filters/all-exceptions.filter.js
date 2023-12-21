@@ -35,8 +35,10 @@ let AllExceptionsFilter = class AllExceptionsFilter {
             if (typeof exception['response'].message == typeof {})
                 message = this.capitalize(exception['response'].message.join(' e ').toLowerCase());
         }
-        response.render('pages/404', {
-            fullBody: false
+        response.json({
+            success: false,
+            message: message,
+            statusCode: exception['status'] || status
         });
     }
 };

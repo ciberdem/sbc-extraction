@@ -1,4 +1,4 @@
-import { ApiExtractionModule } from './api/extraction/extraction.module';
+import { ApiExtractionModule } from './modules/extraction/extraction.module';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express/interfaces/nest-express-application.interface';

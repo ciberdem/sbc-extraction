@@ -1,9 +1,9 @@
 import { Controller, Get, Body, Delete, Put, Req, Param, Query, Post } from '@nestjs/common';
 import { ApiQuery, ApiTags } from '@nestjs/swagger';
-import { AnswerDTO } from 'src/dto/answer/answer.dto';
-import { ExtractionDTO } from 'src/dto/models/extraction.dto';
+import { AnswerDTO } from 'src/dto/answer.dto';
+import { ExtractionDTO } from 'src/dto/extraction.dto';
 import { ExtractionService } from './extraction.service';
-import { LinksDTO } from 'src/dto/models/links.dto';
+import { LinksDTO } from 'src/dto/links.dto';
 
 @ApiTags('Extraction')
 @Controller('api/extraction')

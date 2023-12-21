@@ -6,24 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.ApiExtractionModule = void 0;
 const common_1 = require("@nestjs/common");
-const serve_static_module_1 = require("@nestjs/serve-static/dist/serve-static.module");
-const path_1 = require("path");
-const extraction_module_1 = require("./modules/extraction/extraction.module");
-const search_module_1 = require("./modules/manager/search.module");
-let AppModule = class AppModule {
+const extraction_controller_1 = require("./extraction.controller");
+const extraction_service_1 = require("./extraction.service");
+const nest_crawler_1 = require("nest-crawler");
+let ApiExtractionModule = class ApiExtractionModule {
 };
-AppModule = __decorate([
+ApiExtractionModule = __decorate([
     common_1.Module({
         imports: [
-            serve_static_module_1.ServeStaticModule.forRoot({
-                rootPath: path_1.join(__dirname, '..', 'public'),
-            }),
-            extraction_module_1.ApiExtractionModule,
-            search_module_1.SearchModule
+            nest_crawler_1.NestCrawlerModule,
         ],
+        providers: [extraction_service_1.ExtractionService],
+        controllers: [extraction_controller_1.ApiExtractionController],
+        exports: [extraction_service_1.ExtractionService]
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], ApiExtractionModule);
+exports.ApiExtractionModule = ApiExtractionModule;
+//# sourceMappingURL=extraction.module.js.map

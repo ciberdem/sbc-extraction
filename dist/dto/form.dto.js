@@ -9,25 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ManagerService = void 0;
-const common_1 = require("@nestjs/common");
-const extraction_service_1 = require("../extraction/extraction.service");
-const extraction_dto_1 = require("../../dto/extraction.dto");
-const form_dto_1 = require("../../dto/form.dto");
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+exports.FormDTO = void 0;
+const swagger_1 = require("@nestjs/swagger");
+class FormDTO {
 }
-let ManagerService = class ManagerService {
-    constructor(extractorService) {
-        this.extractorService = extractorService;
-    }
-    async searchBy(wordSearch) {
-        return this.extractorService.getAll(wordSearch);
-    }
-};
-ManagerService = __decorate([
-    common_1.Injectable(),
-    __metadata("design:paramtypes", [extraction_service_1.ExtractionService])
-], ManagerService);
-exports.ManagerService = ManagerService;
-//# sourceMappingURL=manager.service.js.map
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], FormDTO.prototype, "searchWord", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Object)
+], FormDTO.prototype, "archives", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Object)
+], FormDTO.prototype, "languages", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], FormDTO.prototype, "initialDate", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], FormDTO.prototype, "finalDate", void 0);
+exports.FormDTO = FormDTO;
+//# sourceMappingURL=form.dto.js.map

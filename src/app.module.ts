@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static/dist/serve-static.module';
 import { join } from 'path';
-import { ApiExtractionModule } from './api/extraction/extraction.module';
-import { ManagerModule } from './modules/manager/manager.module';
+import { ApiExtractionModule } from './modules/extraction/extraction.module';
+import { SearchModule } from './modules/manager/search.module';
 
 @Module({
   imports: [
@@ -10,7 +10,7 @@ import { ManagerModule } from './modules/manager/manager.module';
       rootPath: join(__dirname, '..', 'public'),
     }),
     ApiExtractionModule,
-    ManagerModule
+    SearchModule
   ],
 })
 export class AppModule { }

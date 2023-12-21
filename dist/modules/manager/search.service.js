@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ManagerService = void 0;
+exports.SearchService = void 0;
 const common_1 = require("@nestjs/common");
 const extraction_service_1 = require("../extraction/extraction.service");
 const extraction_dto_1 = require("../../dto/extraction.dto");
@@ -17,7 +17,7 @@ const form_dto_1 = require("../../dto/form.dto");
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-let ManagerService = class ManagerService {
+let SearchService = class SearchService {
     constructor(extractorService) {
         this.extractorService = extractorService;
     }
@@ -25,9 +25,9 @@ let ManagerService = class ManagerService {
         return this.extractorService.getAll(wordSearch);
     }
 };
-ManagerService = __decorate([
+SearchService = __decorate([
     common_1.Injectable(),
     __metadata("design:paramtypes", [extraction_service_1.ExtractionService])
-], ManagerService);
-exports.ManagerService = ManagerService;
-//# sourceMappingURL=manager.service.js.map
+], SearchService);
+exports.SearchService = SearchService;
+//# sourceMappingURL=search.service.js.map

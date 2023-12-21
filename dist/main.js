@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const extraction_module_1 = require("./api/extraction/extraction.module");
+const extraction_module_1 = require("./modules/extraction/extraction.module");
 const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
@@ -16,8 +16,8 @@ const hbsHelpers_1 = require("./helpers/hbs/hbsHelpers");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const options = new swagger_1.DocumentBuilder()
-        .setTitle('Pesquisa')
-        .setDescription('The API para extração e facilitação em busca de dados nas bases de Pesquisa')
+        .setTitle('Reiwa')
+        .setDescription('The Reiwa API description')
         .setVersion('1.0')
         .addBearerAuth()
         .build();

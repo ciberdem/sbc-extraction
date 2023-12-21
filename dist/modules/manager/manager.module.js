@@ -10,7 +10,7 @@ exports.ManagerModule = void 0;
 const common_1 = require("@nestjs/common");
 const manager_service_1 = require("./manager.service");
 const manager_controller_1 = require("./manager.controller");
-const extraction_module_1 = require("../../api/extraction/extraction.module");
+const extraction_module_1 = require("../extraction/extraction.module");
 let ManagerModule = class ManagerModule {
 };
 ManagerModule = __decorate([
