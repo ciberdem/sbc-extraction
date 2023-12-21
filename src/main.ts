@@ -46,7 +46,7 @@ async function bootstrap() {
   hbs.registerPartials(join(__dirname, '..', 'views/partials'));
   hbs.registerHelper('formatDate', CustomHelpers.formatDate);
 
-  hbs.registerHelper('contains', function(array, value, options) {
+  hbs.registerHelper('contains', function (array, value, options) {
     if (array && array.indexOf(value) !== -1) {
       return options.fn(this);
     } else {
@@ -55,16 +55,16 @@ async function bootstrap() {
   });
 
   // Passaport Session
-  app.use(session({
-    secret: 'AKSJNDKJSANDJ@#$%^&UYHGFDE$@R%TYHu3y12g3i87gbjuasd87g1ouj2v9ey',
-    cookie: {
-      maxAge: 86400000 * 7 * 12, // 1 ano
-    }
-  }))
+  // app.use(session({
+  //   secret: 'AKSJNDKJSANDJ@#$%^&UYHGFDE$@R%TYHu3y12g3i87gbjuasd87g1ouj2v9ey',
+  //   cookie: {
+  //     maxAge: 86400000 * 7 * 12, // 1 ano
+  //   }
+  // }))
 
-  app.use(flash());
-  app.use(helmet());
-
+  // app.use(flash());
+  // app.use(helmet({ contentSecurityPolicy: false }));
+  // TODO: - Improve: helmet({ contentSecurityPolicy: { directives: { 'script-src': ["'self'", "https://whitelisted-domain.com"] } } })
 
   // PORT
   await app.listen(process.env.PORT || 3000);
