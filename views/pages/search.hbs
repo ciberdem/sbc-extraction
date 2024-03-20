@@ -1,3 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;
+       img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+       style-src  'self' 'unsafe-inline' *">
+    <title>{{title}}</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link defer
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+
+    <!-- Picker -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="/vendor/datepicker/bootstrap-datepicker3.min.css">
+</head>
+
+<body class="bg-gradient-primary">
+    <div class="container">
+        {{{body}}}
+    </div>
+
+    {{> footer}}
+</body>
+
+<!-- Bootstrap core JavaScript-->
+<script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/vendor/extraction/jspdf.umd.min.js"></script>
+<script type="text/javascript" src="/vendor/extraction/tableExport.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script type="text/javascript" src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Page level plugins -->
+<script type="text/javascript" src="/vendor/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level plugins -->
+<script type="text/javascript" src="/vendor/chart.js/Chart.min.js"></script>
+<script type="text/javascript" src="/vendor/jquery-mask/jquery.mask.min.js"></script>
+
+<!-- Page level custom my scripts -->
+<script type="text/javascript" src="/js/translate.table.js"></script>
+
+<!-- Picker -->
+<script type="text/javascript" src="/vendor/datepicker/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="/vendor/datepicker/bootstrap-datepicker.pt-BR.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script type="text/javascript" src="/js/main.js"></script>
+<script type="module" src="/js/firebase.js"></script>
+</html>
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <p class="text-center mb-0">Apoiadores</p>
+        <div class="row text-center justify-content-center">
+            <a href="https://www.mackenzie.br/universidade/unidades-academicas/fci" target="_blank">
+                <div class='m-1 mt-4 mb-4 bg-mack-image'></div>
+            </a>
+            <a href="https://mackcloud.mackenzie.br/" target="_blank">
+                <div class='m-1 mt-4 mb-4 bg-mack-cloud-image'></div>
+            </a>
+            <a href="https://www5.each.usp.br/" target="_blank">
+                <div class='m-1 mt-4 mb-4 bg-each-image'></div>
+            </a>
+            <a href="http://ppgsi.each.usp.br/" target="_blank">
+                <div class='m-1 mt-4 mb-4 bg-ppgsi-image'></div>
+            </a>
+        </div>
+
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy;<a href="https://github.com/MaatheusGois" target="_blank">Matheus Gois</a></span>
+            <span>&reg;<a href="https://github.com/ciberdem/sbc-extraction" target="_blank">Github</a></span>
+            <span>&trade;<a href="/api" target="_blank">API</a></span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+
 <!-- Begin Page Content -->
 <div class="modal fade show d-flex align-items-center justify-content-center" id="loaderModal" tabindex="-1"
     role="dialog">
@@ -19,7 +115,6 @@
         <a href="https://sol.sbc.org.br/busca/index.php/integrada" target="_blank"><div class='m-1 mt-4 mb-4 bg-sbc-image'></div></a>
     </div>
 
-
     <!-- Page Heading -->
     <h1 class="h4 mb-2 text-gray-800">FERRAMENTA PARA EXTRAÇÃO DE DADOS DA BIBLIOTECA DIGITAL DA SOCIEDADE BRASILEIRA DE
         COMPUTAÇÃO</h1>
@@ -30,7 +125,7 @@
         <div class="row ms-auto mb-4 mt-4 m-2">
             <form id="target" class='user col-12' action='/' method='post'>
 
-                {{!-- Search --}}
+                <!-- Search -->
                 <label for="inputWord">Pesquisa</label>
                 <div class="row mb-0">
                     <div class='form-group col-12'>
@@ -40,7 +135,7 @@
                     </div>
                 </div>
 
-                {{!-- Archives --}}
+                <!-- Archives -->
 
                 <label for="customCheck1">Bases</label>
                 <div class="row form-group ml-1">
@@ -66,7 +161,7 @@
                     </div>
                 </div>
 
-                {{!-- Date --}}
+                <!-- Date -->
 
                 <label for="fecha1">Período</label>
                 <div class="form-group">
@@ -88,7 +183,7 @@
                     </div>
                 </div>
 
-                {{!-- Language --}}
+                <!-- Language -->
 
                 <label for="languageCheck1">Idioma</label>
                 <div class="row form-group ml-1">
@@ -114,8 +209,7 @@
                     </div>
                 </div>
 
-                <button id="submit" type='submit'
-                    class='col-sm-4 btn btn-primary btn-user btn-block mt-4'>
+                <button id="submit" type='submit' class='col-sm-4 btn btn-primary btn-user btn-block mt-4'>
                     Pesquisar
                 </button>
             </form>
@@ -150,51 +244,48 @@
                         </div>
                     </div>
                 </div>
-
-                <table class="table table-bordered" style="overflow-y: auto;" id="dataTable" width="100%"
-                    cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Título</th>
-                            <th>Ano</th>
-                            <th>Autores</th>
-                            <th>Resumo</th>
-                            <th>Publicado em:</th>
-                            <th>Tipo</th>
-                            <th>DOI</th>
-                            <th>PDF</th>
-                            <th>Link</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each results}}
-                        <tr>
-                            {{#if this.url}}
-                            <td><a href="{{this.url}}" target="_blank">{{this.title}} </a></d>
-                                {{else}}
-                            <td>{{this.title}}</d>
-                                {{/if}}
-                            <td>
-                                {{#if this.year}}{{this.year}}{{else}}---{{/if}}
-                            </td>
-                            <td>
-                                {{#if this.authors}}{{this.authors}}{{else}}---{{/if}}
-                            </td>
-                            <td>
-                                <div style="width:300px; height:300px; overflow:auto">
-                                    {{#if this.abstract}}{{this.abstract}}{{else}}---{{/if}}
-                                </div>
-                            </td>
-                            <td>{{#if this.publicated}}{{this.publicated}}{{else}}---{{/if}}</td>
-                            <td>{{#if this.type}}{{this.type}}{{else}}---{{/if}}</td>
-                            <td><a href="{{this.DOI}}" target="_blank">{{#if this.DOI}}DOI{{/if}}</a></td>
-                            <td><a href="{{this.PDF}}" target="_blank">{{#if this.DOI}}PDF{{/if}}</a></td>
-                            <td><a href="{{this.url}}" target="_blank">{{#if this.url}}Link{{/if}}</a></td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-            </div>
+            <table class="table table-bordered" style="overflow-y: auto;" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Ano</th>
+                        <th>Autores</th>
+                        <th>Resumo</th>
+                        <th>Publicado em:</th>
+                        <th>Tipo</th>
+                        <th>DOI</th>
+                        <th>PDF</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each results}}
+                    <tr>
+                        {{#if this.url}}
+                        <td><a href="{{this.url}}" target="_blank">{{this.title}} </a></td>
+                        {{else}}
+                        <td>{{this.title}}</td>
+                        {{/if}}
+                        <td>
+                            {{#if this.year}}{{this.year}}{{else}}---{{/if}}
+                        </td>
+                        <td>
+                            {{#if this.authors}}{{this.authors}}{{else}}---{{/if}}
+                        </td>
+                        <td>
+                            <div style="width:300px; height:300px; overflow:auto">
+                                {{#if this.abstract}}{{this.abstract}}{{else}}---{{/if}}
+                            </div>
+                        </td>
+                        <td>{{#if this.publicated}}{{this.publicated}}{{else}}---{{/if}}</td>
+                        <td>{{#if this.type}}{{this.type}}{{else}}---{{/if}}</td>
+                        <td><a href="{{this.DOI}}" target="_blank">{{#if this.DOI}}DOI{{/if}}</a></td>
+                        <td><a href="{{this.PDF}}" target="_blank">{{#if this.DOI}}PDF{{/if}}</a></td>
+                        <td><a href="{{this.url}}" target="_blank">{{#if this.url}}Link{{/if}}</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

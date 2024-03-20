@@ -8,10 +8,6 @@ import { ValidationPipe } from '@nestjs/common';
 import { json } from 'body-parser';
 import { join } from 'path';
 import * as hbs from 'hbs';
-import * as helmet from 'helmet';
-
-import * as session from 'express-session';
-import flash = require('connect-flash');
 import CustomHelpers from './helpers/hbs/hbsHelpers';
 
 async function bootstrap() {
@@ -53,18 +49,6 @@ async function bootstrap() {
       return options.inverse(this);
     }
   });
-
-  // Passaport Session
-  // app.use(session({
-  //   secret: 'AKSJNDKJSANDJ@#$%^&UYHGFDE$@R%TYHu3y12g3i87gbjuasd87g1ouj2v9ey',
-  //   cookie: {
-  //     maxAge: 86400000 * 7 * 12, // 1 ano
-  //   }
-  // }))
-
-  // app.use(flash());
-  // app.use(helmet({ contentSecurityPolicy: false }));
-  // TODO: - Improve: helmet({ contentSecurityPolicy: { directives: { 'script-src': ["'self'", "https://whitelisted-domain.com"] } } })
 
   // PORT
   await app.listen(process.env.PORT || 3000);
