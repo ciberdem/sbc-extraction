@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title id="title">Sistema Visu</title>
+	<meta name="description" content="" />
+	<meta name="generator" content="Studio 3 http://aptana.com/" />
+	<meta name="author" content="Rafael" />
+
+	<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+	<script type="text/javascript">
+
+		// --------------------------------------------
+		// Clockbar
+		// --------------------------------------------
+
+		var clockBar; // desenha uma barra de progresso enquanto as mensagens est�o sendo carregadas do servidor
+	</script>
+	<script language="javascript" type='text/javascript' src="babblers/js/interfaceFunctions/jquery.min.js"> </script>
+	<script type="text/javascript" src="allianceNetwork/libs/jquery-ui-1.8.17.custom.min.js"></script>
+	<script language="javascript" type='text/javascript' src="geral/js/standard-discussions.js"> </script>
+	<script language="javascript" type='text/javascript' src="geral/js/homeInterface.js"> </script>
+	<script language="javascript" type='text/javascript' src="geral/js/translate.js"> </script>
+	<script language="javascript" type='text/javascript' src="babblers/js/package.classes.js/BubbleClass.js"> </script>
+	<script language="javascript" type='text/javascript'
+		src="babblers/js/package.classes.js/MensagemClass.js"> </script>
+	<script language="javascript" type='text/javascript'
+		src="babblers/js/package.classes.js/BubbleChartMessageClass.js"> </script>
+	<script language="javascript" type='text/javascript'
+		src="babblers/js/package.classes.js/BubbleMessageClass.js"> </script>
+	<script language="javascript" type='text/javascript'
+		src="babblers/js/package.classes.js/AxisDivisionClass.js"> </script>
+	<script language="javascript" type='text/javascript'
+		src="babblers/js/package.classes.js/MessagesListClass.js"> </script>
+	<script language="javascript" type='text/javascript' src="babblers/js/package.classes.js/UserClass.js"> </script>
+	<script language="javascript" type='text/javascript' src="babblers/js/package.classes.js/ClockBarClass.js"></script>
+	<script language="javascript" type='text/javascript'
+		src="babblers/js/package.classes.js/BubbleChartClass.js"></script>
+	<script language="javascript" type='text/javascript'
+		src="babblers/js/package.classes.js/UsersListClass.js"></script>
+	<script language="javascript" type='text/javascript' src="babblers/js/package.utils.js/javascript.js"></script>
+	<script language="javascript" type='text/javascript' src="babblers/js/vo/ReturnMessagesUsers.js"></script>
+	<script type="text/javascript" src="babblers/js/interfaceFunctions/jquery.storage.js"></script>
+	<script type="text/javascript" src="babblers/js/interfaceFunctions/jquery.tour.js"></script>
+	<script type="text/javascript" src="babblers/js/interfaceFunctions/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="babblers/js/interfaceFunctions/tour.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="geral/css/geral.css">
+	<link rel="stylesheet" type="text/css" href="babblers/css/jquery.jquerytour.css" />
+	<link rel="stylesheet" type="text/css" href="allianceNetwork/css/overcast/jquery-ui-1.8.17.custom.css">
+</head>
+
+<body>
+
+
+	<!-- HTML Code -->
+	<img src="images/visuLogo.png" alt="Logomarca do Visu" />
+	<div id="divContainer">
+		<div id="divMenu">
+			<ul class="menu">
+				<li class="group import-discussion"><a id="aimport" href="#import-discussion">Importar discussão</a>
+				</li>
+				<li class="group visualisations"><a id="avisualizations" href="#visualisations">Visualizações</a>
+				<li id="visualisations-babblers" class="group group-visualisations visualisations-babblers"><a
+						id="avisualisations-babblers" href="#visualisations-babblers">Participação</a></li>
+				<li id="visualisations-popularity" class="group group-visualisations visualisations-popularity"><a
+						id="avisualisations-popularity" href="#visualisations-popularity">Popularidade</a></li>
+				<li id="visualisations-alliance" class="group group-visualisations visualisations-alliance"><a
+						id="avisualisations-alliance" href="#visualisations-alliance">Alianças e confrontos</a></li>
+				<li id="visualisations-polemic" class="group group-visualisations visualisations-polemic"><a
+						id="avisualisations-polemic" href="#visualisations-polemic">Polêmicas</a></li>
+				</li>
+				<li class="group about"><a id="aabout" href="#about">Sobre</a></li>
+				<li class="group tutorial"><a href="#tutorial">Tutorial</a></li>
+			</ul>
+		</div>
+		<div id="divConteudo">
+			<!-- Home Section-->
+			<!-- About Visu Section-->
+			<!-- Visualizations Section-->
+
+			<div id="divDiscussion">
+				<form id="formDiscussion">
+					<span id="canvasTitle" class="titleBabblers">Coloque a discussão na área de texto abaixo ou use a
+						discussão pré-definida.</span>
+					<TEXTAREA id="textDiscussion" type="textarea" rows="40" cols="65" value=""></TEXTAREA>
+				</form>
+			</div>
+			<!--<div id="standard-discussions">
+		<div id="standard-discussions-parking" class="standard-discussions"><span id="discussion-parking" class="ui-icon ui-icon-circle-arrow-w standard-discussion"></span>Estacionamento</div>
+		<div id="standard-discussions-group" class="standard-discussions"><span id="discussion-group" class="ui-icon ui-icon-circle-arrow-w standard-discussion"></span>Professores participando do grupo de alunos</div>
+		<div id="standard-discussions-course" class="standard-discussions"><span id="discussion-course" class="ui-icon ui-icon-circle-arrow-w standard-discussion"></span>Mudanças no currículo do primeiro período</div>
+	</div>-->
+			<div id="images" class="images">
+				<span id="canvasTitleBabblers" class="titleImages">Participação</span>
+				<div id="image-babblers" class="image image-babblers"><img src="images/babblers.png" /></div>
+				<span id="canvasTitlePopularity" class="titleImages">Popularidade</span>
+				<div id="image-popularity" class="image image-popularity"><img src="images/popularity-small.png" />
+				</div>
+				<span id="canvasTitleAlliances" class="titleImages">Rede de alianças e confrontos</span>
+				<div id="image-alliance" class="image image-alliance"><img src="images/alliance-network-small.png" />
+				</div>
+				<span id="canvasTitlePolemics" class="titleImages">Árvore de polêmicas</span>
+				<div id="image-polemic" class="image image-polemic"><img src="images/polemics-small.png" /></div>
+
+			</div>
+			<!-- Fim: Visualizations Section-->
+		</div>
+	</div>
+</body>
+
+</html>
