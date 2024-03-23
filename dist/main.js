@@ -41,7 +41,7 @@ async function bootstrap() {
             return options.inverse(this);
         }
     });
-    await app.listen(process.env.PORT || 3000);
+    await app.listen(process.env.PORT || 80);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
