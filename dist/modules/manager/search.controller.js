@@ -31,14 +31,14 @@ let SearchController = class SearchController {
     }
 };
 __decorate([
-    common_1.Get('/'),
+    common_1.Get('/apps/sbc-extraction'),
     __param(0, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], SearchController.prototype, "index", null);
 __decorate([
-    common_1.Post('/'),
+    common_1.Post('/apps/sbc-extraction'),
     __param(0, common_1.Req()), __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),

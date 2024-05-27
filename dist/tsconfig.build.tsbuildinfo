@@ -2042,7 +2042,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/manager/search.controller.ts": {
-        "version": "a3596722aa5aa5285d29b06bae3748c18b27ee6a148a52ee183e28c7d8969548",
+        "version": "62eed8ebae8910e1031d218d7f906eb37060e9ddad9a23c072e1f1cb1737b3e4",
         "signature": "798b2797b33c8d87775374f3ae16d7aca0205c44c0fa512a61719e90f2114248",
         "affectsGlobalScope": false
       },
