@@ -36,9 +36,9 @@ async function bootstrap() {
   // Validations
   app.useGlobalPipes(new ValidationPipe());
   // Cors
-  app.enableCors();
+  // app.enableCors();
   // Add filters
-  app.useGlobalFilters(new AllExceptionsFilter())
+  // app.useGlobalFilters(new AllExceptionsFilter())
   //VIEW - HBS
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
