@@ -24,12 +24,12 @@ export class AllExceptionsFilter implements ExceptionFilter {
                 ? exception.getStatus()
                 : HttpStatus.BAD_REQUEST;
 
-        if (message == 'Cannot GET /' || exception['status'] == '404') message = 'Caminho procurado não foi encontrado, verifique a url da requisição.'
-        else if (message == 'Unauthorized') message = 'Acesso não autorizado, faça login para continuar.'
-        else if (exception['response']) {
-            if (exception['response'].statusCode) status = exception['response'].statusCode
-            if (typeof exception['response'].message == typeof {}) message = this.capitalize(exception['response'].message.join(' e ').toLowerCase())
-        }
+        // if (message == 'Cannot GET /' || exception['status'] == '404') message = 'Caminho procurado não foi encontrado, verifique a url da requisição.'
+        // else if (message == 'Unauthorized') message = 'Acesso não autorizado, faça login para continuar.'
+        // else if (exception['response']) {
+        //     if (exception['response'].statusCode) status = exception['response'].statusCode
+        //     if (typeof exception['response'].message == typeof {}) message = this.capitalize(exception['response'].message.join(' e ').toLowerCase())
+        // }
 
         // response.render(
         //     'pages/404',
