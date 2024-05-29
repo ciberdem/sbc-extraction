@@ -21,6 +21,7 @@ export class SearchController {
         const forms: FormDTO = req.body;
         console.log(forms)
         const results = await this.service.searchBy(forms)
+        console.log(results)
         res.render('pages/search', { results, forms })
     }
 }

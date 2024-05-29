@@ -15,8 +15,9 @@ export class ExtractionService {
 
     async getAll(data: FormDTO): Promise<ExtractionDTO[]> {
         const URL = this.createURL(data);
+        console.log(URL)
         const numberOfPages = await this.getNumberOfPages(URL);
-
+        console.log(numberOfPages)
         let requests: Promise<ExtractionDTO[]>[] = [];
         for (let i = 1; i <= numberOfPages; i++) {
             requests.push(this.getAllFromPage(URL, i))
