@@ -11,12 +11,12 @@ export class SearchController {
         private service: SearchService,
     ) { }
 
-    @Get('/sbc-extraction')
+    @Get('/')
     index(@Res() res) {
         res.render('pages/search')
     }
 
-    @Post('/sbc-extraction')
+    @Post('/')
     async postSearch(@Req() req, @Res() res) {
         const forms: FormDTO = req.body;
         const results = await this.service.searchBy(forms)
