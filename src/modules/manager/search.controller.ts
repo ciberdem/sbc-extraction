@@ -13,6 +13,7 @@ export class SearchController {
 
     @Get('/apps/sbc-extraction')
     index(@Res() res) {
+        console.log(res)
         res.render('pages/search')
     }
 
