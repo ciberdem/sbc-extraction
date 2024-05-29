@@ -11,7 +11,7 @@ export class SearchController {
         private service: SearchService,
     ) { }
 
-    @Get('/apps/sbc-extraction')
+    @Get('/home/owner/repos/sbc-extraction/public/index.html')
     index(@Res() res) {
         console.log(res)
         res.render('pages/search')
